@@ -1,9 +1,6 @@
-Here is the converted Node.js service module based on the provided Java Spring Boot service class:
-
-Node.js code:
-```javascript
 const bcrypt = require('bcrypt');
-const { CustomerRepository, StaffRepository } = require('./repositories');
+const CustomerRepository = require('./customerrepository');
+const StaffRepository = require('./staffrepository');
 
 /**
  * Service module for user details operations.
@@ -49,14 +46,3 @@ async function loadUserByUsername(anyUsername) {
 module.exports = {
     loadUserByUsername
 };
-```
-
-In this Node.js service module:
-- The `loadUserByUsername` function is exported to load user details by username.
-- The function uses async/await for asynchronous operations and proper error handling.
-- JSDoc comments are provided for documentation.
-- Data validation is not explicitly shown here but should be implemented in the repository methods.
-- The module uses modern JavaScript patterns and bcrypt for password hashing.
-- The module exports the `loadUserByUsername` function for external use.
-
-Make sure to implement the `CustomerRepository` and `StaffRepository` modules with the necessary database operations for fetching customer and staff data.

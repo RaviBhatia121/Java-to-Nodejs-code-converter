@@ -1,9 +1,7 @@
-Here is the converted Node.js Express controller based on the provided Java Spring Boot controller:
 
-```javascript
 const express = require('express');
 const router = express.Router();
-const Actor = require('../models/Actor'); // Assuming Actor model is defined
+const actorRepository = require('./actorrepository');
 
 /**
  * Get actors based on filters.
@@ -18,18 +16,20 @@ router.get('/actors', async (req, res) => {
         let actors;
 
         if (firstName === 'ALL ACTORS' && lastName === 'ALL ACTORS') {
-            actors = await Actor.getAllActors();
+            // TODO: Implement getAllActors method in actorRepository
+            // For now, we'll use findActorsByFirstName with a wildcard approach
+            actors = await actorRepository.findActorsByFirstName('%'); // Placeholder
         } else if (lastName === 'ALL ACTORS') {
-            actors = await Actor.getActorsByFirstName(firstName);
+            actors = await actorRepository.findActorsByFirstName(firstName);
         } else if (firstName === 'ALL ACTORS') {
-            actors = await Actor.getActorsByLastName(lastName);
+            actors = await actorRepository.findActorsByLastName(lastName);
         } else {
-            actors = await Actor.getActorsByFullName(firstName, lastName);
+            actors = await actorRepository.findActorsByFirstNameAndLastName(firstName, lastName);
         }
 
         res.status(200).json({ actors });
     } catch (error) {
-        console.error(error);
+        console.error('Error fetching actors:', error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
@@ -43,24 +43,33 @@ router.get('/actors', async (req, res) => {
 router.get('/actors/details', async (req, res) => {
     try {
         const { id } = req.query;
-        const actorName = await Actor.getActorFullNameFromID(id);
-        const films = await Actor.getFilmsByActor(id);
+        
+        if (!id) {
+            return res.status(400).json({ message: 'Actor ID is required' });
+        }
 
-        res.status(200).json({ name: actorName, films });
+        const actor = await actorRepository.getActorByActorId(parseInt(id));
+        
+        if (!actor) {
+            return res.status(404).json({ message: 'Actor not found' });
+        }
+
+        // Construct full name from actor data
+        const actorName = `${actor.first_name} ${actor.last_name}`;
+        
+        // TODO: Implement getFilmsByActor method in actorRepository
+        // For now, return empty films array
+        const films = []; // Placeholder - implement film lookup logic
+
+        res.status(200).json({ 
+            name: actorName, 
+            films,
+            actor // Include full actor details
+        });
     } catch (error) {
-        console.error(error);
+        console.error('Error fetching actor details:', error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
 
 module.exports = router;
-```
-
-In this Node.js Express controller:
-- Routes are defined using Express router.
-- JSDoc comments are added for each route function.
-- Async/await is used for asynchronous database operations.
-- Proper error handling is implemented with appropriate HTTP status codes.
-- The assumption is made that the Actor model with necessary methods like `getAllActors`, `getActorsByFirstName`, `getActorsByLastName`, `getActorsByFullName`, `getActorFullNameFromID`, and `getFilmsByActor` is defined elsewhere in the project.
-
-Make sure to replace the assumptions with actual implementations based on your project structure and database operations.

@@ -1,16 +1,15 @@
-Here is the Node.js Express data access module that replicates the functionality of the provided Java Spring Boot Repository/DAO:
 
-```javascript
 // actorRepository.js
 
 const { Pool } = require('pg');
 
+// Use environment variables for database configuration
 const pool = new Pool({
-  user: 'your_username',
-  host: 'localhost',
-  database: 'your_database',
-  password: 'your_password',
-  port: 5432,
+  user: process.env.DB_USER || 'your_username',
+  host: process.env.DB_HOST || 'localhost',
+  database: process.env.DB_NAME || 'your_database',
+  password: process.env.DB_PASSWORD || 'your_password',
+  port: process.env.DB_PORT || 5432,
 });
 
 /**
@@ -20,13 +19,18 @@ const pool = new Pool({
  * @returns {Promise<Array>} List of actors
  */
 const findActorsByFirstNameAndLastName = async (firstName, lastName) => {
-  const query = {
-    text: 'SELECT * FROM actors WHERE first_name = $1 AND last_name = $2',
-    values: [firstName, lastName],
-  };
+  try {
+    const query = {
+      text: 'SELECT * FROM actors WHERE first_name = $1 AND last_name = $2',
+      values: [firstName, lastName],
+    };
 
-  const { rows } = await pool.query(query);
-  return rows;
+    const { rows } = await pool.query(query);
+    return rows;
+  } catch (error) {
+    console.error('Error finding actors by first and last name:', error);
+    throw error;
+  }
 };
 
 /**
@@ -35,13 +39,18 @@ const findActorsByFirstNameAndLastName = async (firstName, lastName) => {
  * @returns {Promise<Array>} List of actors
  */
 const findActorsByFirstName = async (firstName) => {
-  const query = {
-    text: 'SELECT * FROM actors WHERE first_name = $1',
-    values: [firstName],
-  };
+  try {
+    const query = {
+      text: 'SELECT * FROM actors WHERE first_name = $1',
+      values: [firstName],
+    };
 
-  const { rows } = await pool.query(query);
-  return rows;
+    const { rows } = await pool.query(query);
+    return rows;
+  } catch (error) {
+    console.error('Error finding actors by first name:', error);
+    throw error;
+  }
 };
 
 /**
@@ -50,13 +59,18 @@ const findActorsByFirstName = async (firstName) => {
  * @returns {Promise<Array>} List of actors
  */
 const findActorsByLastName = async (lastName) => {
-  const query = {
-    text: 'SELECT * FROM actors WHERE last_name = $1',
-    values: [lastName],
-  };
+  try {
+    const query = {
+      text: 'SELECT * FROM actors WHERE last_name = $1',
+      values: [lastName],
+    };
 
-  const { rows } = await pool.query(query);
-  return rows;
+    const { rows } = await pool.query(query);
+    return rows;
+  } catch (error) {
+    console.error('Error finding actors by last name:', error);
+    throw error;
+  }
 };
 
 /**
@@ -65,13 +79,18 @@ const findActorsByLastName = async (lastName) => {
  * @returns {Promise<Object>} Actor object
  */
 const getActorByActorId = async (id) => {
-  const query = {
-    text: 'SELECT * FROM actors WHERE actor_id = $1',
-    values: [id],
-  };
+  try {
+    const query = {
+      text: 'SELECT * FROM actors WHERE actor_id = $1',
+      values: [id],
+    };
 
-  const { rows } = await pool.query(query);
-  return rows[0];
+    const { rows } = await pool.query(query);
+    return rows[0];
+  } catch (error) {
+    console.error('Error getting actor by ID:', error);
+    throw error;
+  }
 };
 
 module.exports = {
@@ -80,10 +99,3 @@ module.exports = {
   findActorsByLastName,
   getActorByActorId,
 };
-```
-
-In this Node.js module, we are using the `pg` library to connect to a PostgreSQL database. The module provides functions to perform CRUD operations on the `actors` table similar to the Java Spring Boot Repository/DAO.
-
-Make sure to replace the database connection details with your actual database credentials. Additionally, ensure that you have the `pg` library installed in your Node.js project.
-
-This code follows best practices for error handling, query validation, and documentation using JSDoc comments.
