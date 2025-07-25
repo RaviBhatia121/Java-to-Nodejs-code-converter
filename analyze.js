@@ -124,7 +124,7 @@ Focus on Spring Boot patterns, REST endpoints, database operations, and business
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
@@ -228,7 +228,7 @@ Return complete, production-ready Node.js code.
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
