@@ -8,7 +8,7 @@
       "entity": 10,
       "other": 9
     },
-    "analysisDate": "2025-07-25T09:55:34.658Z"
+    "analysisDate": "2025-07-25T10:07:55.623Z"
   },
   "classes": [
     {
@@ -25,11 +25,25 @@
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/SakilaProjectApplication.java",
       "category": "other",
       "className": "SakilaProjectApplication",
-      "description": "Analysis failed",
-      "methods": [],
-      "complexityLevel": "unknown",
-      "internalDependencies": [],
-      "annotations": []
+      "description": "This class serves as the entry point for the Sakila Project Spring Boot application.",
+      "methods": [
+        {
+          "name": "main",
+          "signature": "public static void main(String[] args)",
+          "description": "The main method that starts the Spring Boot application by running SpringApplication.",
+          "returnType": "void",
+          "parameters": [
+            "String[]"
+          ]
+        }
+      ],
+      "complexityLevel": "low",
+      "internalDependencies": [
+        "SpringApplication"
+      ],
+      "annotations": [
+        "@SpringBootApplication"
+      ]
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/ActorController.java",
@@ -73,13 +87,41 @@
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/MainController.java",
-      "category": "other",
+      "category": "controller",
       "className": "MainController",
-      "description": "Analysis failed",
-      "methods": [],
-      "complexityLevel": "unknown",
-      "internalDependencies": [],
-      "annotations": []
+      "description": "This class serves as a controller for handling requests related to home, login, and account functionalities.",
+      "methods": [
+        {
+          "name": "home",
+          "signature": "public String home()",
+          "description": "Handles requests for the home page.",
+          "returnType": "String",
+          "parameters": []
+        },
+        {
+          "name": "login",
+          "signature": "public String login()",
+          "description": "Handles requests for the login page.",
+          "returnType": "String",
+          "parameters": []
+        },
+        {
+          "name": "account",
+          "signature": "public String account()",
+          "description": "Handles requests for the account page.",
+          "returnType": "String",
+          "parameters": []
+        }
+      ],
+      "complexityLevel": "low",
+      "internalDependencies": [
+        "org.springframework.web.bind.annotation.RequestMapping",
+        "org.springframework.stereotype.Controller"
+      ],
+      "annotations": [
+        "@Controller",
+        "@RequestMapping"
+      ]
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/StaffController.java",
@@ -103,13 +145,87 @@
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Category.java",
-      "category": "other",
+      "category": "entity",
       "className": "Category",
-      "description": "Analysis failed",
-      "methods": [],
-      "complexityLevel": "unknown",
-      "internalDependencies": [],
-      "annotations": []
+      "description": "This class represents a Category entity in the Sakila project. It contains information about a category such as category ID, name, and last update timestamp.",
+      "methods": [
+        {
+          "name": "getCategoryId",
+          "signature": "public int getCategoryId()",
+          "description": "Returns the category ID.",
+          "returnType": "int",
+          "parameters": []
+        },
+        {
+          "name": "setCategoryId",
+          "signature": "public void setCategoryId(int categoryId)",
+          "description": "Sets the category ID.",
+          "returnType": "void",
+          "parameters": [
+            "int"
+          ]
+        },
+        {
+          "name": "getName",
+          "signature": "public String getName()",
+          "description": "Returns the name of the category.",
+          "returnType": "String",
+          "parameters": []
+        },
+        {
+          "name": "setName",
+          "signature": "public void setName(String name)",
+          "description": "Sets the name of the category.",
+          "returnType": "void",
+          "parameters": [
+            "String"
+          ]
+        },
+        {
+          "name": "getLastUpdate",
+          "signature": "public Timestamp getLastUpdate()",
+          "description": "Returns the last update timestamp of the category.",
+          "returnType": "Timestamp",
+          "parameters": []
+        },
+        {
+          "name": "setLastUpdate",
+          "signature": "public void setLastUpdate(Timestamp lastUpdate)",
+          "description": "Sets the last update timestamp of the category.",
+          "returnType": "void",
+          "parameters": [
+            "Timestamp"
+          ]
+        },
+        {
+          "name": "equals",
+          "signature": "public boolean equals(Object o)",
+          "description": "Compares this Category instance with another object for equality.",
+          "returnType": "boolean",
+          "parameters": [
+            "Object"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "signature": "public int hashCode()",
+          "description": "Generates a hash code for the Category instance.",
+          "returnType": "int",
+          "parameters": []
+        }
+      ],
+      "complexityLevel": "low",
+      "internalDependencies": [
+        "java.sql.Timestamp",
+        "java.util.Collection",
+        "java.util.Objects"
+      ],
+      "annotations": [
+        "@Entity",
+        "@Id",
+        "@Column",
+        "@Basic"
+      ]
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Customer.java",
@@ -133,13 +249,90 @@
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmActor.java",
-      "category": "other",
+      "category": "entity",
       "className": "FilmActor",
-      "description": "Analysis failed",
-      "methods": [],
-      "complexityLevel": "unknown",
-      "internalDependencies": [],
-      "annotations": []
+      "description": "This class represents the association between actors and films in the Sakila database.",
+      "methods": [
+        {
+          "name": "getActorId",
+          "signature": "public int getActorId()",
+          "description": "Returns the actor ID associated with this film actor entry.",
+          "returnType": "int",
+          "parameters": []
+        },
+        {
+          "name": "setActorId",
+          "signature": "public void setActorId(int actorId)",
+          "description": "Sets the actor ID for this film actor entry.",
+          "returnType": "void",
+          "parameters": [
+            "int"
+          ]
+        },
+        {
+          "name": "getFilmId",
+          "signature": "public int getFilmId()",
+          "description": "Returns the film ID associated with this film actor entry.",
+          "returnType": "int",
+          "parameters": []
+        },
+        {
+          "name": "setFilmId",
+          "signature": "public void setFilmId(int filmId)",
+          "description": "Sets the film ID for this film actor entry.",
+          "returnType": "void",
+          "parameters": [
+            "int"
+          ]
+        },
+        {
+          "name": "getLastUpdate",
+          "signature": "public Timestamp getLastUpdate()",
+          "description": "Returns the timestamp of the last update for this film actor entry.",
+          "returnType": "Timestamp",
+          "parameters": []
+        },
+        {
+          "name": "setLastUpdate",
+          "signature": "public void setLastUpdate(Timestamp lastUpdate)",
+          "description": "Sets the timestamp of the last update for this film actor entry.",
+          "returnType": "void",
+          "parameters": [
+            "Timestamp"
+          ]
+        },
+        {
+          "name": "equals",
+          "signature": "public boolean equals(Object o)",
+          "description": "Compares this film actor entry with another object for equality.",
+          "returnType": "boolean",
+          "parameters": [
+            "Object"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "signature": "public int hashCode()",
+          "description": "Generates a hash code value for this film actor entry.",
+          "returnType": "int",
+          "parameters": []
+        }
+      ],
+      "complexityLevel": "low",
+      "internalDependencies": [
+        "FilmActorPK",
+        "Objects",
+        "Timestamp"
+      ],
+      "annotations": [
+        "Entity",
+        "Table",
+        "IdClass",
+        "Id",
+        "Column",
+        "Basic",
+        "Override"
+      ]
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmActorPK.java",
@@ -153,13 +346,90 @@
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmCategory.java",
-      "category": "other",
+      "category": "entity",
       "className": "FilmCategory",
-      "description": "Analysis failed",
-      "methods": [],
-      "complexityLevel": "unknown",
-      "internalDependencies": [],
-      "annotations": []
+      "description": "This class represents the mapping entity for the 'film_category' table in the 'sakila' database. It stores the relationship between films and categories.",
+      "methods": [
+        {
+          "name": "getFilmId",
+          "signature": "public int getFilmId()",
+          "description": "Returns the film ID associated with this film category entry.",
+          "returnType": "int",
+          "parameters": []
+        },
+        {
+          "name": "setFilmId",
+          "signature": "public void setFilmId(Integer filmId)",
+          "description": "Sets the film ID for this film category entry.",
+          "returnType": "void",
+          "parameters": [
+            "Integer"
+          ]
+        },
+        {
+          "name": "getCategoryId",
+          "signature": "public int getCategoryId()",
+          "description": "Returns the category ID associated with this film category entry.",
+          "returnType": "int",
+          "parameters": []
+        },
+        {
+          "name": "setCategoryId",
+          "signature": "public void setCategoryId(Integer categoryId)",
+          "description": "Sets the category ID for this film category entry.",
+          "returnType": "void",
+          "parameters": [
+            "Integer"
+          ]
+        },
+        {
+          "name": "getLastUpdate",
+          "signature": "public Timestamp getLastUpdate()",
+          "description": "Returns the timestamp of the last update for this film category entry.",
+          "returnType": "Timestamp",
+          "parameters": []
+        },
+        {
+          "name": "setLastUpdate",
+          "signature": "public void setLastUpdate(Timestamp lastUpdate)",
+          "description": "Sets the timestamp of the last update for this film category entry.",
+          "returnType": "void",
+          "parameters": [
+            "Timestamp"
+          ]
+        },
+        {
+          "name": "equals",
+          "signature": "public boolean equals(Object o)",
+          "description": "Compares this film category entry with another object for equality.",
+          "returnType": "boolean",
+          "parameters": [
+            "Object"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "signature": "public int hashCode()",
+          "description": "Generates a hash code for this film category entry.",
+          "returnType": "int",
+          "parameters": []
+        }
+      ],
+      "complexityLevel": "low",
+      "internalDependencies": [
+        "FilmCategoryPK",
+        "Objects",
+        "Timestamp"
+      ],
+      "annotations": [
+        "Entity",
+        "Table",
+        "IdClass",
+        "Id",
+        "Column",
+        "Basic",
+        "Override"
+      ]
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmCategoryPK.java",
@@ -193,12 +463,65 @@
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Order.java",
-      "category": "other",
+      "category": "entity",
       "className": "Order",
-      "description": "Analysis failed",
-      "methods": [],
-      "complexityLevel": "unknown",
-      "internalDependencies": [],
+      "description": "This class represents an order in the Sakila project, containing information about the customer, film, and rental associated with the order.",
+      "methods": [
+        {
+          "name": "getCustomer",
+          "signature": "public Customer getCustomer()",
+          "description": "Returns the customer associated with this order.",
+          "returnType": "Customer",
+          "parameters": []
+        },
+        {
+          "name": "setCustomer",
+          "signature": "public void setCustomer(Customer customer)",
+          "description": "Sets the customer associated with this order.",
+          "returnType": "void",
+          "parameters": [
+            "Customer"
+          ]
+        },
+        {
+          "name": "getFilm",
+          "signature": "public Film getFilm()",
+          "description": "Returns the film associated with this order.",
+          "returnType": "Film",
+          "parameters": []
+        },
+        {
+          "name": "setFilm",
+          "signature": "public void setFilm(Film film)",
+          "description": "Sets the film associated with this order.",
+          "returnType": "void",
+          "parameters": [
+            "Film"
+          ]
+        },
+        {
+          "name": "getRental",
+          "signature": "public Rental getRental()",
+          "description": "Returns the rental associated with this order.",
+          "returnType": "Rental",
+          "parameters": []
+        },
+        {
+          "name": "setRental",
+          "signature": "public void setRental(Rental rental)",
+          "description": "Sets the rental associated with this order.",
+          "returnType": "void",
+          "parameters": [
+            "Rental"
+          ]
+        }
+      ],
+      "complexityLevel": "low",
+      "internalDependencies": [
+        "Customer",
+        "Film",
+        "Rental"
+      ],
       "annotations": []
     },
     {
@@ -233,13 +556,28 @@
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/CategoryRepository.java",
-      "category": "other",
+      "category": "dao",
       "className": "CategoryRepository",
-      "description": "Analysis failed",
-      "methods": [],
-      "complexityLevel": "unknown",
-      "internalDependencies": [],
-      "annotations": []
+      "description": "This interface represents a repository for Category entities in the Sakila project. It extends JpaRepository to provide CRUD operations for Category entities.",
+      "methods": [
+        {
+          "name": "getCategoryByCategoryId",
+          "signature": "Category getCategoryByCategoryId(Integer id)",
+          "description": "Retrieves a Category entity by its category ID.",
+          "returnType": "Category",
+          "parameters": [
+            "Integer"
+          ]
+        }
+      ],
+      "complexityLevel": "low",
+      "internalDependencies": [
+        "Category",
+        "JpaRepository"
+      ],
+      "annotations": [
+        "@Repository"
+      ]
     },
     {
       "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/CustomerRepository.java",
@@ -423,13 +761,39 @@
     },
     {
       "filePath": "java-codebase/src/test/java/com/sparta/engineering72/sakilaproject/SakilaProjectApplicationTests.java",
-      "category": "other",
+      "category": "controller",
       "className": "SakilaProjectApplicationTests",
-      "description": "Analysis failed",
-      "methods": [],
-      "complexityLevel": "unknown",
-      "internalDependencies": [],
-      "annotations": []
+      "description": "This class contains test methods for the MainController class in the Sakila project. It tests the functionality of the home, account, and login methods in the MainController class.",
+      "methods": [
+        {
+          "name": "MainController1",
+          "signature": "public void MainController1()",
+          "description": "Instantiates MainController and tests the home method to check if it returns 'home'.",
+          "returnType": "void",
+          "parameters": []
+        },
+        {
+          "name": "MainController2",
+          "signature": "public void MainController2()",
+          "description": "Instantiates MainController and tests the account method to check if it returns 'account'.",
+          "returnType": "void",
+          "parameters": []
+        },
+        {
+          "name": "MainController3",
+          "signature": "public void MainController3()",
+          "description": "Instantiates MainController and tests the login method to check if it returns 'login'.",
+          "returnType": "void",
+          "parameters": []
+        }
+      ],
+      "complexityLevel": "low",
+      "internalDependencies": [
+        "MainController"
+      ],
+      "annotations": [
+        "@Test"
+      ]
     }
   ],
   "conversions": [
@@ -472,7 +836,7 @@
       },
       {
         "className": "MainController",
-        "methods": 0
+        "methods": 3
       },
       {
         "className": "StaffController",
@@ -520,7 +884,7 @@
       },
       {
         "className": "CategoryRepository",
-        "methods": 0
+        "methods": 1
       },
       {
         "className": "CustomerRepository",
