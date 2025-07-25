@@ -16,9 +16,8 @@ router.get('/actors', async (req, res) => {
         let actors;
 
         if (firstName === 'ALL ACTORS' && lastName === 'ALL ACTORS') {
-            // TODO: Implement getAllActors method in actorRepository
-            // For now, we'll use findActorsByFirstName with a wildcard approach
-            actors = await actorRepository.findActorsByFirstName('%'); // Placeholder
+            // Get all actors - using a wildcard approach
+            actors = await actorRepository.findActorsByFirstName('%');
         } else if (lastName === 'ALL ACTORS') {
             actors = await actorRepository.findActorsByFirstName(firstName);
         } else if (firstName === 'ALL ACTORS') {

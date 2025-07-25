@@ -1,15 +1,22 @@
-
 // actorRepository.js
 
 const { Pool } = require('pg');
 
-// Use environment variables for database configuration
+/**
+ * Database configuration using environment variables
+ * TODO: Set these environment variables in your .env file:
+ * DB_USER=sakila_user
+ * DB_HOST=localhost  
+ * DB_NAME=sakila
+ * DB_PASSWORD=password
+ * DB_PORT=5432
+ */
 const pool = new Pool({
-  user: process.env.DB_USER || 'your_username',
-  host: process.env.DB_HOST || 'localhost',
-  database: process.env.DB_NAME || 'your_database',
-  password: process.env.DB_PASSWORD || 'your_password',
-  port: process.env.DB_PORT || 5432,
+    user: process.env.DB_USER || 'sakila_user',
+    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_NAME || 'sakila',
+    password: process.env.DB_PASSWORD || 'password',
+    port: process.env.DB_PORT || 5432,
 });
 
 /**
