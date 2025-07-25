@@ -1,48 +1,66 @@
+To convert the given Java Spring service into a Node.js module, we will use the `bcrypt` library for password encoding and a mock database access to simulate the repository behavior. We will also use `async/await` for asynchronous operations and include proper error handling. Here's how you can achieve this:
+
+```javascript
 const bcrypt = require('bcrypt');
-const CustomerRepository = require('./customerrepository');
-const StaffRepository = require('./staffrepository');
+const { getCustomerByEmail, getStaffByUsername } = require('./repositories'); // Mocked repository functions
 
 /**
- * Service module for user details operations.
- * @module UserDetailsServiceImpl
+ * @typedef {Object} UserDetails
+ * @property {string} username - The username of the user.
+ * @property {string} password - The encoded password of the user.
+ * @property {string[]} roles - The roles assigned to the user.
  */
 
 /**
- * Load user details by username.
- * @param {string} anyUsername - The username to load user details for.
- * @returns {Promise<Object>} The user details object.
- * @throws {Error} If user is not found.
+ * Loads user details by username.
+ * @param {string} anyUsername - The username to search for.
+ * @returns {Promise<UserDetails>} The user details.
+ * @throws {Error} If the user is not found.
  */
 async function loadUserByUsername(anyUsername) {
     try {
-        const customer = await CustomerRepository.getCustomerByEmail(anyUsername);
-        const staff = await StaffRepository.getStaffByUsername(anyUsername);
+        const customer = await getCustomerByEmail(anyUsername);
+        const staff = await getStaffByUsername(anyUsername);
 
         if (!customer && !staff) {
             throw new Error('Could not find user');
         }
 
-        let builder;
+        const userDetails = {
+            username: anyUsername,
+            password: '',
+            roles: []
+        };
+
         if (staff) {
-            builder = {
-                username: anyUsername,
-                password: await bcrypt.hash(staff.password, 10),
-                roles: ['ADMIN']
-            };
+            userDetails.password = await bcrypt.hash(staff.password, 10);
+            userDetails.roles.push('ADMIN');
         } else {
-            builder = {
-                username: anyUsername,
-                password: await bcrypt.hash(String(customer.customerId), 10),
-                roles: ['USER']
-            };
+            userDetails.password = await bcrypt.hash(String(customer.customerId), 10);
+            userDetails.roles.push('USER');
         }
 
-        return builder;
+        return userDetails;
     } catch (error) {
-        throw new Error(`Error loading user details: ${error.message}`);
+        throw new Error(`Error loading user by username: ${error.message}`);
     }
 }
 
 module.exports = {
     loadUserByUsername
 };
+```
+
+### Explanation:
+
+1. **Dependencies**: We use the `bcrypt` library for password hashing, which is similar to `BCryptPasswordEncoder` in Java.
+
+2. **Repositories**: The `getCustomerByEmail` and `getStaffByUsername` functions are assumed to be asynchronous functions that interact with a database or data source to retrieve customer and staff information. You need to implement these functions in the `repositories.js` file or wherever your data access logic resides.
+
+3. **Error Handling**: We use try-catch blocks to handle errors that may occur during the asynchronous operations.
+
+4. **UserDetails Object**: We define a `UserDetails` object to mimic the `UserDetails` interface in Java, containing `username`, `password`, and `roles`.
+
+5. **Password Hashing**: We use `bcrypt.hash` to encode passwords, similar to how `BCryptPasswordEncoder` works in Java.
+
+This Node.js module provides a similar functionality to the Java service, allowing you to load user details by username with proper error handling and asynchronous operations.

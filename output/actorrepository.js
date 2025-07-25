@@ -1,104 +1,97 @@
+To convert the Java Spring Data repository to a Node.js data-access module, we can use a combination of a database client like `pg` for PostgreSQL or `mysql2` for MySQL, along with an ORM like `Sequelize` or `TypeORM`. For this example, I'll use `Sequelize` with a PostgreSQL database. The following Node.js module will provide equivalent functionality to the Java DAO you provided.
+
+First, ensure you have the necessary packages installed:
+
+```bash
+npm install sequelize pg pg-hstore
+```
+
+Here's how you can implement the equivalent Node.js module:
+
+```javascript
 // actorRepository.js
 
-const { Pool } = require('pg');
+const { Sequelize, DataTypes, Model } = require('sequelize');
 
-/**
- * Database configuration using environment variables
- * TODO: Set these environment variables in your .env file:
- * DB_USER=sakila_user
- * DB_HOST=localhost  
- * DB_NAME=sakila
- * DB_PASSWORD=password
- * DB_PORT=5432
- */
-const pool = new Pool({
-    user: process.env.DB_USER || 'sakila_user',
-    host: process.env.DB_HOST || 'localhost',
-    database: process.env.DB_NAME || 'sakila',
-    password: process.env.DB_PASSWORD || 'password',
-    port: process.env.DB_PORT || 5432,
+// Initialize Sequelize with your database configuration
+const sequelize = new Sequelize('database', 'username', 'password', {
+  host: 'localhost',
+  dialect: 'postgres', // or 'mysql', 'sqlite', etc.
+});
+
+// Define the Actor model
+class Actor extends Model {}
+
+Actor.init({
+  actorId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  firstName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  lastName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+}, {
+  sequelize,
+  modelName: 'Actor',
+  tableName: 'actors', // Ensure this matches your actual table name
+  timestamps: false, // If your table doesn't have `createdAt` and `updatedAt` columns
 });
 
 /**
- * Find actors by first name and last name
- * @param {string} firstName
- * @param {string} lastName
- * @returns {Promise<Array>} List of actors
+ * Finds actors by first and last name.
+ * @param {string} firstName - The first name of the actor.
+ * @param {string} lastName - The last name of the actor.
+ * @returns {Promise<Array<Actor>>} A promise that resolves to an array of actors.
  */
-const findActorsByFirstNameAndLastName = async (firstName, lastName) => {
-  try {
-    const query = {
-      text: 'SELECT * FROM actors WHERE first_name = $1 AND last_name = $2',
-      values: [firstName, lastName],
-    };
-
-    const { rows } = await pool.query(query);
-    return rows;
-  } catch (error) {
-    console.error('Error finding actors by first and last name:', error);
-    throw error;
-  }
-};
+async function findActorsByFirstNameAndLastName(firstName, lastName) {
+  return await Actor.findAll({
+    where: {
+      firstName,
+      lastName,
+    },
+  });
+}
 
 /**
- * Find actors by first name
- * @param {string} firstName
- * @returns {Promise<Array>} List of actors
+ * Finds actors by first name.
+ * @param {string} firstName - The first name of the actor.
+ * @returns {Promise<Array<Actor>>} A promise that resolves to an array of actors.
  */
-const findActorsByFirstName = async (firstName) => {
-  try {
-    const query = {
-      text: 'SELECT * FROM actors WHERE first_name = $1',
-      values: [firstName],
-    };
-
-    const { rows } = await pool.query(query);
-    return rows;
-  } catch (error) {
-    console.error('Error finding actors by first name:', error);
-    throw error;
-  }
-};
+async function findActorsByFirstName(firstName) {
+  return await Actor.findAll({
+    where: {
+      firstName,
+    },
+  });
+}
 
 /**
- * Find actors by last name
- * @param {string} lastName
- * @returns {Promise<Array>} List of actors
+ * Finds actors by last name.
+ * @param {string} lastName - The last name of the actor.
+ * @returns {Promise<Array<Actor>>} A promise that resolves to an array of actors.
  */
-const findActorsByLastName = async (lastName) => {
-  try {
-    const query = {
-      text: 'SELECT * FROM actors WHERE last_name = $1',
-      values: [lastName],
-    };
-
-    const { rows } = await pool.query(query);
-    return rows;
-  } catch (error) {
-    console.error('Error finding actors by last name:', error);
-    throw error;
-  }
-};
+async function findActorsByLastName(lastName) {
+  return await Actor.findAll({
+    where: {
+      lastName,
+    },
+  });
+}
 
 /**
- * Get actor by actor ID
- * @param {number} id
- * @returns {Promise<Object>} Actor object
+ * Gets an actor by their ID.
+ * @param {number} id - The ID of the actor.
+ * @returns {Promise<Actor|null>} A promise that resolves to the actor or null if not found.
  */
-const getActorByActorId = async (id) => {
-  try {
-    const query = {
-      text: 'SELECT * FROM actors WHERE actor_id = $1',
-      values: [id],
-    };
-
-    const { rows } = await pool.query(query);
-    return rows[0];
-  } catch (error) {
-    console.error('Error getting actor by ID:', error);
-    throw error;
-  }
-};
+async function getActorByActorId(id) {
+  return await Actor.findByPk(id);
+}
 
 module.exports = {
   findActorsByFirstNameAndLastName,
@@ -106,3 +99,13 @@ module.exports = {
   findActorsByLastName,
   getActorByActorId,
 };
+```
+
+### Explanation:
+
+- **Sequelize Initialization**: We initialize Sequelize with the database configuration. Adjust the `database`, `username`, `password`, and `host` to match your setup.
+- **Model Definition**: The `Actor` model is defined with fields corresponding to the database table columns.
+- **Functions**: Each function corresponds to a method in the Java DAO, using Sequelize's query methods to interact with the database.
+- **JSDoc Comments**: Each function is documented with JSDoc comments to describe its purpose and parameters.
+
+Make sure to adjust the database configuration and table names to match your actual setup.

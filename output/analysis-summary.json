@@ -1,0 +1,29 @@
+{
+  "analysisDate": "2025-07-25T12:40:47.217Z",
+  "controllers": [
+    "ActorController",
+    "CategoryController",
+    "CustomerController",
+    "FilmController",
+    "MainController",
+    "StaffController"
+  ],
+  "services": [
+    "ActorService",
+    "CategoryService",
+    "CustomerService",
+    "FilmService",
+    "InventoryService",
+    "RentalService",
+    "StaffService"
+  ],
+  "daos": [
+    "ActorRepository",
+    "CategoryRepository",
+    "CustomerRepository",
+    "FilmRepository",
+    "InventoryRepository",
+    "RentalRepository",
+    "StaffRepository"
+  ]
+}

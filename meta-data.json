@@ -1,25 +1,15 @@
 {
   "analysis": {
-    "totalFiles": 42,
+    "totalFiles": 39,
     "categorizedFiles": {
       "controller": 6,
-      "service": 8,
+      "service": 0,
       "dao": 7,
-      "other": 21
+      "other": 26
     },
-    "analysisDate": "2025-07-25T12:25:20.349Z"
+    "analysisDate": "2025-07-25T12:44:15.950Z"
   },
   "classes": [
-    {
-      "filePath": "/home/runner/workspace/java-codebase/.mvn/wrapper/MavenWrapperDownloader.java",
-      "category": "other",
-      "className": "MavenWrapperDownloader",
-      "description": "Other Java class",
-      "methods": [],
-      "complexityLevel": "low",
-      "internalDependencies": [],
-      "annotations": []
-    },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/SakilaProjectApplication.java",
       "category": "other",
@@ -39,44 +29,44 @@
         {
           "name": "getActors",
           "signature": "public String getActors(ModelMap modelMap,\n                            @RequestParam(value = \"firstName\", defaultValue = \"ALL ACTORS\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "@RequestParam(value = \"firstName\"",
             "defaultValue = \"ALL ACTORS\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "getActorFilmDetails",
           "signature": "public String getActorFilmDetails(ModelMap modelMap,\n                                      @RequestParam(value = \"id\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "@RequestParam(value = \"id\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "findActorById",
           "signature": "public Actor findActorById(Integer id)",
-          "returnType": "Actor",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "Actor",
           "description": "Auto-generated description"
         },
         {
           "name": "getActorFullNameFromID",
           "signature": "public String getActorFullNameFromID(Integer id)",
-          "returnType": "String",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         }
       ],
-      "complexityLevel": "medium",
+      "complexityLevel": "low",
       "internalDependencies": [],
       "annotations": []
     },
@@ -89,29 +79,29 @@
         {
           "name": "getCategories",
           "signature": "public String getCategories(ModelMap modelMap)",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap"
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "getCategoryDetails",
           "signature": "public String getCategoryDetails(ModelMap modelMap,\n                                 @RequestParam(value = \"id\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "@RequestParam(value = \"id\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "getCategoryById",
           "signature": "public Category getCategoryById(Integer id)",
-          "returnType": "Category",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "Category",
           "description": "Auto-generated description"
         }
       ],
@@ -128,32 +118,32 @@
         {
           "name": "currentUser",
           "signature": "public String currentUser(ModelMap modelMap, HttpServletRequest request)",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "HttpServletRequest request"
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "getCustomers",
           "signature": "public String getCustomers(ModelMap modelMap,\n                               @RequestParam(value = \"firstName\", defaultValue = \"ALL CUSTOMERS\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "@RequestParam(value = \"firstName\"",
             "defaultValue = \"ALL CUSTOMERS\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "showUsersRentalHistory",
           "signature": "public String showUsersRentalHistory(ModelMap modelMap,\n                                         @PathVariable(name = \"id\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "@PathVariable(name = \"id\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         }
       ],
@@ -170,71 +160,71 @@
         {
           "name": "getFilms",
           "signature": "public String getFilms(ModelMap modelMap, @RequestParam(value = \"title\", defaultValue = \"ALL FILMS\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "@RequestParam(value = \"title\"",
             "defaultValue = \"ALL FILMS\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmDetails",
           "signature": "public String getFilmDetails(ModelMap modelMap, @RequestParam(value = \"id\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "@RequestParam(value = \"id\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "rentFilm",
           "signature": "public String rentFilm(ModelMap modelMap, Principal principal,\n                           @PathVariable(\"filmid\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "Principal principal",
             "@PathVariable(\"filmid\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmDetails",
           "signature": "public String getFilmDetails(ModelMap modelMap,\n                                 @RequestParam(value = \"title\", defaultValue = \"ALL FILMS\")",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "@RequestParam(value = \"title\"",
             "defaultValue = \"ALL FILMS\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "showEditProductPage",
           "signature": "public ModelAndView showEditProductPage(@PathVariable(name = \"id\")",
-          "returnType": "ModelAndView",
           "parameters": [
             "@PathVariable(name = \"id\""
           ],
+          "returnType": "ModelAndView",
           "description": "Auto-generated description"
         },
         {
           "name": "deleteProduct",
           "signature": "public String deleteProduct(@PathVariable(name = \"id\")",
-          "returnType": "String",
           "parameters": [
             "@PathVariable(name = \"id\""
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "findFilmByID",
           "signature": "public Film findFilmByID(Integer id)",
-          "returnType": "Film",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "Film",
           "description": "Auto-generated description"
         }
       ],
@@ -251,22 +241,22 @@
         {
           "name": "home",
           "signature": "public String home()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "login",
           "signature": "public String login()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "account",
           "signature": "public String account()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         }
       ],
@@ -283,11 +273,11 @@
         {
           "name": "currentUser",
           "signature": "public String currentUser(ModelMap modelMap, HttpServletRequest request)",
-          "returnType": "String",
           "parameters": [
             "ModelMap modelMap",
             "HttpServletRequest request"
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         }
       ],
@@ -304,81 +294,81 @@
         {
           "name": "getActorId",
           "signature": "public int getActorId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setActorId",
           "signature": "public void setActorId(int actorId)",
-          "returnType": "void",
           "parameters": [
             "int actorId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getFirstName",
           "signature": "public String getFirstName()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setFirstName",
           "signature": "public void setFirstName(String firstName)",
-          "returnType": "void",
           "parameters": [
             "String firstName"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastName",
           "signature": "public String getLastName()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastName",
           "signature": "public void setLastName(String lastName)",
-          "returnType": "void",
           "parameters": [
             "String lastName"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
@@ -395,65 +385,65 @@
         {
           "name": "getCategoryId",
           "signature": "public int getCategoryId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setCategoryId",
           "signature": "public void setCategoryId(int categoryId)",
-          "returnType": "void",
           "parameters": [
             "int categoryId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getName",
           "signature": "public String getName()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setName",
           "signature": "public void setName(String name)",
-          "returnType": "void",
           "parameters": [
             "String name"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
@@ -470,133 +460,133 @@
         {
           "name": "getCustomerId",
           "signature": "public int getCustomerId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setCustomerId",
           "signature": "public void setCustomerId(int customerId)",
-          "returnType": "void",
           "parameters": [
             "int customerId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getFirstName",
           "signature": "public String getFirstName()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setFirstName",
           "signature": "public void setFirstName(String firstName)",
-          "returnType": "void",
           "parameters": [
             "String firstName"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastName",
           "signature": "public String getLastName()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastName",
           "signature": "public void setLastName(String lastName)",
-          "returnType": "void",
           "parameters": [
             "String lastName"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getEmail",
           "signature": "public String getEmail()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setEmail",
           "signature": "public void setEmail(String email)",
-          "returnType": "void",
           "parameters": [
             "String email"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getActive",
           "signature": "public byte getActive()",
-          "returnType": "byte",
           "parameters": [],
+          "returnType": "byte",
           "description": "Auto-generated description"
         },
         {
           "name": "setActive",
           "signature": "public void setActive(byte active)",
-          "returnType": "void",
           "parameters": [
             "byte active"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getCreateDate",
           "signature": "public Timestamp getCreateDate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setCreateDate",
           "signature": "public void setCreateDate(Timestamp createDate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp createDate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
-      "complexityLevel": "high",
+      "complexityLevel": "medium",
       "internalDependencies": [],
       "annotations": []
     },
@@ -609,197 +599,197 @@
         {
           "name": "getFilmId",
           "signature": "public int getFilmId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setFilmId",
           "signature": "public void setFilmId(int filmId)",
-          "returnType": "void",
           "parameters": [
             "int filmId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getTitle",
           "signature": "public String getTitle()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setTitle",
           "signature": "public void setTitle(String title)",
-          "returnType": "void",
           "parameters": [
             "String title"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getDescription",
           "signature": "public String getDescription()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setDescription",
           "signature": "public void setDescription(String description)",
-          "returnType": "void",
           "parameters": [
             "String description"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getReleaseYear",
           "signature": "public int getReleaseYear()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setReleaseYear",
           "signature": "public void setReleaseYear(int releaseYear)",
-          "returnType": "void",
           "parameters": [
             "int releaseYear"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getRentalDuration",
           "signature": "public Integer getRentalDuration()",
-          "returnType": "Integer",
           "parameters": [],
+          "returnType": "Integer",
           "description": "Auto-generated description"
         },
         {
           "name": "setRentalDuration",
           "signature": "public void setRentalDuration(Integer rentalDuration)",
-          "returnType": "void",
           "parameters": [
             "Integer rentalDuration"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getRentalRate",
           "signature": "public BigDecimal getRentalRate()",
-          "returnType": "BigDecimal",
           "parameters": [],
+          "returnType": "BigDecimal",
           "description": "Auto-generated description"
         },
         {
           "name": "setRentalRate",
           "signature": "public void setRentalRate(BigDecimal rentalRate)",
-          "returnType": "void",
           "parameters": [
             "BigDecimal rentalRate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLength",
           "signature": "public Integer getLength()",
-          "returnType": "Integer",
           "parameters": [],
+          "returnType": "Integer",
           "description": "Auto-generated description"
         },
         {
           "name": "setLength",
           "signature": "public void setLength(Integer length)",
-          "returnType": "void",
           "parameters": [
             "Integer length"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getReplacementCost",
           "signature": "public BigDecimal getReplacementCost()",
-          "returnType": "BigDecimal",
           "parameters": [],
+          "returnType": "BigDecimal",
           "description": "Auto-generated description"
         },
         {
           "name": "setReplacementCost",
           "signature": "public void setReplacementCost(BigDecimal replacementCost)",
-          "returnType": "void",
           "parameters": [
             "BigDecimal replacementCost"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getRating",
           "signature": "public String getRating()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setRating",
           "signature": "public void setRating(String rating)",
-          "returnType": "void",
           "parameters": [
             "String rating"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getSpecialFeatures",
           "signature": "public String getSpecialFeatures()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setSpecialFeatures",
           "signature": "public void setSpecialFeatures(String specialFeatures)",
-          "returnType": "void",
           "parameters": [
             "String specialFeatures"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
-      "complexityLevel": "high",
+      "complexityLevel": "medium",
       "internalDependencies": [],
       "annotations": []
     },
@@ -812,65 +802,65 @@
         {
           "name": "getActorId",
           "signature": "public int getActorId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setActorId",
           "signature": "public void setActorId(int actorId)",
-          "returnType": "void",
           "parameters": [
             "int actorId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmId",
           "signature": "public int getFilmId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setFilmId",
           "signature": "public void setFilmId(int filmId)",
-          "returnType": "void",
           "parameters": [
             "int filmId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
@@ -887,49 +877,49 @@
         {
           "name": "getActorId",
           "signature": "public Integer getActorId()",
-          "returnType": "Integer",
           "parameters": [],
+          "returnType": "Integer",
           "description": "Auto-generated description"
         },
         {
           "name": "setActorId",
           "signature": "public void setActorId(int actorId)",
-          "returnType": "void",
           "parameters": [
             "int actorId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmId",
           "signature": "public int getFilmId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setFilmId",
           "signature": "public void setFilmId(int filmId)",
-          "returnType": "void",
           "parameters": [
             "int filmId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
@@ -946,65 +936,65 @@
         {
           "name": "getFilmId",
           "signature": "public int getFilmId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setFilmId",
           "signature": "public void setFilmId(Integer filmId)",
-          "returnType": "void",
           "parameters": [
             "Integer filmId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getCategoryId",
           "signature": "public int getCategoryId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setCategoryId",
           "signature": "public void setCategoryId(Integer categoryId)",
-          "returnType": "void",
           "parameters": [
             "Integer categoryId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
@@ -1021,49 +1011,49 @@
         {
           "name": "getFilmId",
           "signature": "public int getFilmId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setFilmId",
           "signature": "public void setFilmId(int filmId)",
-          "returnType": "void",
           "parameters": [
             "int filmId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getCategoryId",
           "signature": "public int getCategoryId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setCategoryId",
           "signature": "public void setCategoryId(int categoryId)",
-          "returnType": "void",
           "parameters": [
             "int categoryId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
@@ -1080,65 +1070,65 @@
         {
           "name": "getFilmId",
           "signature": "public int getFilmId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setFilmId",
           "signature": "public void setFilmId(int filmId)",
-          "returnType": "void",
           "parameters": [
             "int filmId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getTitle",
           "signature": "public String getTitle()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setTitle",
           "signature": "public void setTitle(String title)",
-          "returnType": "void",
           "parameters": [
             "String title"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getDescription",
           "signature": "public String getDescription()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setDescription",
           "signature": "public void setDescription(String description)",
-          "returnType": "void",
           "parameters": [
             "String description"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
@@ -1155,65 +1145,65 @@
         {
           "name": "getInventoryId",
           "signature": "public int getInventoryId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setInventoryId",
           "signature": "public void setInventoryId(int inventoryId)",
-          "returnType": "void",
           "parameters": [
             "int inventoryId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmId",
           "signature": "public int getFilmId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setFilmId",
           "signature": "public void setFilmId(int filmId)",
-          "returnType": "void",
           "parameters": [
             "int filmId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
@@ -1230,49 +1220,49 @@
         {
           "name": "getCustomer",
           "signature": "public Customer getCustomer()",
-          "returnType": "Customer",
           "parameters": [],
+          "returnType": "Customer",
           "description": "Auto-generated description"
         },
         {
           "name": "setCustomer",
           "signature": "public void setCustomer(Customer customer)",
-          "returnType": "void",
           "parameters": [
             "Customer customer"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilm",
           "signature": "public Film getFilm()",
-          "returnType": "Film",
           "parameters": [],
+          "returnType": "Film",
           "description": "Auto-generated description"
         },
         {
           "name": "setFilm",
           "signature": "public void setFilm(Film film)",
-          "returnType": "void",
           "parameters": [
             "Film film"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getRental",
           "signature": "public Rental getRental()",
-          "returnType": "Rental",
           "parameters": [],
+          "returnType": "Rental",
           "description": "Auto-generated description"
         },
         {
           "name": "setRental",
           "signature": "public void setRental(Rental rental)",
-          "returnType": "void",
           "parameters": [
             "Rental rental"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         }
       ],
@@ -1289,133 +1279,133 @@
         {
           "name": "getRentalId",
           "signature": "public int getRentalId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setRentalId",
           "signature": "public void setRentalId(int rentalId)",
-          "returnType": "void",
           "parameters": [
             "int rentalId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getRentalDate",
           "signature": "public Timestamp getRentalDate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setRentalDate",
           "signature": "public void setRentalDate(Timestamp rentalDate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp rentalDate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getInventoryId",
           "signature": "public int getInventoryId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setInventoryId",
           "signature": "public void setInventoryId(int inventoryId)",
-          "returnType": "void",
           "parameters": [
             "int inventoryId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getCustomerId",
           "signature": "public int getCustomerId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setCustomerId",
           "signature": "public void setCustomerId(int customerId)",
-          "returnType": "void",
           "parameters": [
             "int customerId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getReturnDate",
           "signature": "public Timestamp getReturnDate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setReturnDate",
           "signature": "public void setReturnDate(Timestamp returnDate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp returnDate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getStaffId",
           "signature": "public int getStaffId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setStaffId",
           "signature": "public void setStaffId(int staffId)",
-          "returnType": "void",
           "parameters": [
             "int staffId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
-      "complexityLevel": "high",
+      "complexityLevel": "medium",
       "internalDependencies": [],
       "annotations": []
     },
@@ -1428,165 +1418,165 @@
         {
           "name": "getStaffId",
           "signature": "public int getStaffId()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         },
         {
           "name": "setStaffId",
           "signature": "public void setStaffId(int staffId)",
-          "returnType": "void",
           "parameters": [
             "int staffId"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getFirstName",
           "signature": "public String getFirstName()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setFirstName",
           "signature": "public void setFirstName(String firstName)",
-          "returnType": "void",
           "parameters": [
             "String firstName"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastName",
           "signature": "public String getLastName()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastName",
           "signature": "public void setLastName(String lastName)",
-          "returnType": "void",
           "parameters": [
             "String lastName"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getPicture",
           "signature": "public byte[] getPicture()",
-          "returnType": "byte[]",
           "parameters": [],
+          "returnType": "byte[]",
           "description": "Auto-generated description"
         },
         {
           "name": "setPicture",
           "signature": "public void setPicture(byte[] picture)",
-          "returnType": "void",
           "parameters": [
             "byte[] picture"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getEmail",
           "signature": "public String getEmail()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setEmail",
           "signature": "public void setEmail(String email)",
-          "returnType": "void",
           "parameters": [
             "String email"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getActive",
           "signature": "public byte getActive()",
-          "returnType": "byte",
           "parameters": [],
+          "returnType": "byte",
           "description": "Auto-generated description"
         },
         {
           "name": "setActive",
           "signature": "public void setActive(byte active)",
-          "returnType": "void",
           "parameters": [
             "byte active"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getUsername",
           "signature": "public String getUsername()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setUsername",
           "signature": "public void setUsername(String username)",
-          "returnType": "void",
           "parameters": [
             "String username"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getPassword",
           "signature": "public String getPassword()",
-          "returnType": "String",
           "parameters": [],
+          "returnType": "String",
           "description": "Auto-generated description"
         },
         {
           "name": "setPassword",
           "signature": "public void setPassword(String password)",
-          "returnType": "void",
           "parameters": [
             "String password"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getLastUpdate",
           "signature": "public Timestamp getLastUpdate()",
-          "returnType": "Timestamp",
           "parameters": [],
+          "returnType": "Timestamp",
           "description": "Auto-generated description"
         },
         {
           "name": "setLastUpdate",
           "signature": "public void setLastUpdate(Timestamp lastUpdate)",
-          "returnType": "void",
           "parameters": [
             "Timestamp lastUpdate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "equals",
           "signature": "public boolean equals(Object o)",
-          "returnType": "boolean",
           "parameters": [
             "Object o"
           ],
+          "returnType": "boolean",
           "description": "Auto-generated description"
         },
         {
           "name": "hashCode",
           "signature": "public int hashCode()",
-          "returnType": "int",
           "parameters": [],
+          "returnType": "int",
           "description": "Auto-generated description"
         }
       ],
-      "complexityLevel": "high",
+      "complexityLevel": "medium",
       "internalDependencies": [],
       "annotations": []
     },
@@ -1669,12 +1659,12 @@
         {
           "name": "handle",
           "signature": "public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException e)",
-          "returnType": "void",
           "parameters": [
             "HttpServletRequest request",
             "HttpServletResponse response",
             "AccessDeniedException e"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         }
       ],
@@ -1691,10 +1681,10 @@
         {
           "name": "addViewControllers",
           "signature": "public void addViewControllers(ViewControllerRegistry registry)",
-          "returnType": "void",
           "parameters": [
             "ViewControllerRegistry registry"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         }
       ],
@@ -1711,12 +1701,12 @@
         {
           "name": "onAuthenticationSuccess",
           "signature": "public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)",
-          "returnType": "void",
           "parameters": [
             "HttpServletRequest request",
             "HttpServletResponse response",
             "Authentication authentication"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         }
       ],
@@ -1726,17 +1716,17 @@
     },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/UserDetailsServiceImpl.java",
-      "category": "service",
+      "category": "other",
       "className": "UserDetailsServiceImpl",
-      "description": "Service class converted from Java.",
+      "description": "Other Java class",
       "methods": [
         {
           "name": "loadUserByUsername",
           "signature": "public UserDetails loadUserByUsername(String anyUsername)",
-          "returnType": "UserDetails",
           "parameters": [
             "String anyUsername"
           ],
+          "returnType": "UserDetails",
           "description": "Auto-generated description"
         }
       ],
@@ -1753,22 +1743,22 @@
         {
           "name": "userDetailsService",
           "signature": "public UserDetailsService userDetailsService()",
-          "returnType": "UserDetailsService",
           "parameters": [],
+          "returnType": "UserDetailsService",
           "description": "Auto-generated description"
         },
         {
           "name": "passwordEncoder",
           "signature": "public PasswordEncoder passwordEncoder()",
-          "returnType": "PasswordEncoder",
           "parameters": [],
+          "returnType": "PasswordEncoder",
           "description": "Auto-generated description"
         },
         {
           "name": "authenticationProvider",
           "signature": "public DaoAuthenticationProvider authenticationProvider()",
-          "returnType": "DaoAuthenticationProvider",
           "parameters": [],
+          "returnType": "DaoAuthenticationProvider",
           "description": "Auto-generated description"
         }
       ],
@@ -1778,61 +1768,61 @@
     },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/ActorService.java",
-      "category": "service",
+      "category": "other",
       "className": "ActorService",
-      "description": "Service class converted from Java.",
+      "description": "Other Java class",
       "methods": [
         {
           "name": "getAllActors",
           "signature": "public List<Actor> getAllActors()",
-          "returnType": "List<Actor>",
           "parameters": [],
+          "returnType": "List<Actor>",
           "description": "Auto-generated description"
         },
         {
           "name": "getActorByID",
           "signature": "public Actor getActorByID(int id)",
-          "returnType": "Actor",
           "parameters": [
             "int id"
           ],
+          "returnType": "Actor",
           "description": "Auto-generated description"
         },
         {
           "name": "getActorsByFullName",
           "signature": "public List<Actor> getActorsByFullName(String firstName, String lastName)",
-          "returnType": "List<Actor>",
           "parameters": [
             "String firstName",
             "String lastName"
           ],
+          "returnType": "List<Actor>",
           "description": "Auto-generated description"
         },
         {
           "name": "getActorsByFirstName",
           "signature": "public List<Actor> getActorsByFirstName(String firstName)",
-          "returnType": "List<Actor>",
           "parameters": [
             "String firstName"
           ],
+          "returnType": "List<Actor>",
           "description": "Auto-generated description"
         },
         {
           "name": "getActorsByLastName",
           "signature": "public List<Actor> getActorsByLastName(String lastName)",
-          "returnType": "List<Actor>",
           "parameters": [
             "String lastName"
           ],
+          "returnType": "List<Actor>",
           "description": "Auto-generated description"
         },
         {
           "name": "getActorFullNameFromID",
           "signature": "public String getActorFullNameFromID(Integer id)",
-          "returnType": "String",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "String",
           "description": "Auto-generated description"
         }
       ],
@@ -1842,24 +1832,24 @@
     },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/CategoryService.java",
-      "category": "service",
+      "category": "other",
       "className": "CategoryService",
-      "description": "Service class converted from Java.",
+      "description": "Other Java class",
       "methods": [
         {
           "name": "getAllCategories",
           "signature": "public List<Category> getAllCategories()",
-          "returnType": "List<Category>",
           "parameters": [],
+          "returnType": "List<Category>",
           "description": "Auto-generated description"
         },
         {
           "name": "getByCategoryId",
           "signature": "public Category getByCategoryId(Integer id)",
-          "returnType": "Category",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "Category",
           "description": "Auto-generated description"
         }
       ],
@@ -1869,77 +1859,77 @@
     },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/CustomerService.java",
-      "category": "service",
+      "category": "other",
       "className": "CustomerService",
-      "description": "Service class converted from Java.",
+      "description": "Other Java class",
       "methods": [
         {
           "name": "getAllCustomers",
           "signature": "public List<Customer> getAllCustomers()",
-          "returnType": "List<Customer>",
           "parameters": [],
+          "returnType": "List<Customer>",
           "description": "Auto-generated description"
         },
         {
           "name": "getCustomersByFirstName",
           "signature": "public List<Customer> getCustomersByFirstName(String firstName)",
-          "returnType": "List<Customer>",
           "parameters": [
             "String firstName"
           ],
+          "returnType": "List<Customer>",
           "description": "Auto-generated description"
         },
         {
           "name": "getCustomersByLastName",
           "signature": "public List<Customer> getCustomersByLastName(String lastName)",
-          "returnType": "List<Customer>",
           "parameters": [
             "String lastName"
           ],
+          "returnType": "List<Customer>",
           "description": "Auto-generated description"
         },
         {
           "name": "getCustomersByFullName",
           "signature": "public List<Customer> getCustomersByFullName(String firstName, String lastName)",
-          "returnType": "List<Customer>",
           "parameters": [
             "String firstName",
             "String lastName"
           ],
+          "returnType": "List<Customer>",
           "description": "Auto-generated description"
         },
         {
           "name": "getCustomerByID",
           "signature": "public Customer getCustomerByID(int id)",
-          "returnType": "Customer",
           "parameters": [
             "int id"
           ],
+          "returnType": "Customer",
           "description": "Auto-generated description"
         },
         {
           "name": "getCustomerByEmail",
           "signature": "public Customer getCustomerByEmail(String email)",
-          "returnType": "Customer",
           "parameters": [
             "String email"
           ],
+          "returnType": "Customer",
           "description": "Auto-generated description"
         },
         {
           "name": "save",
           "signature": "public void save(Customer customer)",
-          "returnType": "void",
           "parameters": [
             "Customer customer"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getCustomerCount",
           "signature": "public Integer getCustomerCount()",
-          "returnType": "Integer",
           "parameters": [],
+          "returnType": "Integer",
           "description": "Auto-generated description"
         }
       ],
@@ -1949,85 +1939,85 @@
     },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/FilmService.java",
-      "category": "service",
+      "category": "other",
       "className": "FilmService",
-      "description": "Service class converted from Java.",
+      "description": "Other Java class",
       "methods": [
         {
           "name": "getAllFilms",
           "signature": "public List<Film> getAllFilms()",
-          "returnType": "List<Film>",
           "parameters": [],
+          "returnType": "List<Film>",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmByID",
           "signature": "public Film getFilmByID(int id)",
-          "returnType": "Film",
           "parameters": [
             "int id"
           ],
+          "returnType": "Film",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmsByTitle",
           "signature": "public List<Film> getFilmsByTitle(String title)",
-          "returnType": "List<Film>",
           "parameters": [
             "String title"
           ],
+          "returnType": "List<Film>",
           "description": "Auto-generated description"
         },
         {
           "name": "getAvailableFilms",
           "signature": "public List<Film> getAvailableFilms()",
-          "returnType": "List<Film>",
           "parameters": [],
+          "returnType": "List<Film>",
           "description": "Auto-generated description"
         },
         {
           "name": "getAvailableFilmCount",
           "signature": "public Integer getAvailableFilmCount(Integer id)",
-          "returnType": "Integer",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "Integer",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmsByCategory",
           "signature": "public List<Film> getFilmsByCategory(Integer id)",
-          "returnType": "List<Film>",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "List<Film>",
           "description": "Auto-generated description"
         },
         {
           "name": "getFilmsByActor",
           "signature": "public List<Film> getFilmsByActor(Integer id)",
-          "returnType": "List<Film>",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "List<Film>",
           "description": "Auto-generated description"
         },
         {
           "name": "save",
           "signature": "public void save(Film film)",
-          "returnType": "void",
           "parameters": [
             "Film film"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "deleteFilmById",
           "signature": "public void deleteFilmById(int id)",
-          "returnType": "void",
           "parameters": [
             "int id"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         }
       ],
@@ -2037,71 +2027,71 @@
     },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/InventoryService.java",
-      "category": "service",
+      "category": "other",
       "className": "InventoryService",
-      "description": "Service class converted from Java.",
+      "description": "Other Java class",
       "methods": [
         {
           "name": "getAllInventory",
           "signature": "public List<Inventory> getAllInventory()",
-          "returnType": "List<Inventory>",
           "parameters": [],
+          "returnType": "List<Inventory>",
           "description": "Auto-generated description"
         },
         {
           "name": "getInventoriesById",
           "signature": "public Inventory getInventoriesById(Integer id)",
-          "returnType": "Inventory",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "Inventory",
           "description": "Auto-generated description"
         },
         {
           "name": "deleteInventoryItemById",
           "signature": "public void deleteInventoryItemById(Integer id)",
-          "returnType": "void",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         },
         {
           "name": "getInventoryCount",
           "signature": "public Integer getInventoryCount()",
-          "returnType": "Integer",
           "parameters": [],
+          "returnType": "Integer",
           "description": "Auto-generated description"
         }
       ],
-      "complexityLevel": "medium",
+      "complexityLevel": "low",
       "internalDependencies": [],
       "annotations": []
     },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/RentalService.java",
-      "category": "service",
+      "category": "other",
       "className": "RentalService",
-      "description": "Service class converted from Java.",
+      "description": "Other Java class",
       "methods": [
         {
           "name": "getRentalsByCustomer",
           "signature": "public List<Rental> getRentalsByCustomer(Integer id)",
-          "returnType": "List<Rental>",
           "parameters": [
             "Integer id"
           ],
+          "returnType": "List<Rental>",
           "description": "Auto-generated description"
         },
         {
           "name": "addRental",
           "signature": "public void addRental(int inventoryId, int customerId, Timestamp returnDate)",
-          "returnType": "void",
           "parameters": [
             "int inventoryId",
             "int customerId",
             "Timestamp returnDate"
           ],
+          "returnType": "void",
           "description": "Auto-generated description"
         }
       ],
@@ -2111,263 +2101,24 @@
     },
     {
       "filePath": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/StaffService.java",
-      "category": "service",
+      "category": "other",
       "className": "StaffService",
-      "description": "Service class converted from Java.",
+      "description": "Other Java class",
       "methods": [
         {
           "name": "getAllStaff",
           "signature": "public List<Staff> getAllStaff()",
-          "returnType": "List<Staff>",
           "parameters": [],
+          "returnType": "List<Staff>",
           "description": "Auto-generated description"
         },
         {
           "name": "getStaffByUsername",
           "signature": "public Staff getStaffByUsername(String username)",
-          "returnType": "Staff",
           "parameters": [
             "String username"
           ],
-          "description": "Auto-generated description"
-        }
-      ],
-      "complexityLevel": "low",
-      "internalDependencies": [],
-      "annotations": []
-    },
-    {
-      "filePath": "/home/runner/workspace/java-codebase/src/test/java/com/sparta/engineering72/sakilaproject/MockTests.java",
-      "category": "other",
-      "className": "MockTests",
-      "description": "Other Java class",
-      "methods": [
-        {
-          "name": "init",
-          "signature": "public void init()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testActorById",
-          "signature": "public void testActorById()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testActorByFirstName",
-          "signature": "public void testActorByFirstName()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testActorByLastName",
-          "signature": "public void testActorByLastName()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testActorByMore",
-          "signature": "public void testActorByMore()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testActorByFullName",
-          "signature": "public void testActorByFullName()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilmByID",
-          "signature": "public void testFilmByID()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilmByDescritption",
-          "signature": "public void testFilmByDescritption()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilmByRating",
-          "signature": "public void testFilmByRating()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilmByLength",
-          "signature": "public void testFilmByLength()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilmByName",
-          "signature": "public void testFilmByName()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilmByDescription",
-          "signature": "public void testFilmByDescription()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilms",
-          "signature": "public void testFilms()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCategoryById",
-          "signature": "public void testCategoryById()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCategoryByName",
-          "signature": "public void testCategoryByName()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCustomerById",
-          "signature": "public void testCustomerById()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCustomer",
-          "signature": "public void testCustomer()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testStaff",
-          "signature": "public void testStaff()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilmController",
-          "signature": "public void testFilmController()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testFilmController2",
-          "signature": "public void testFilmController2()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCategory",
-          "signature": "public void testCategory()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCategory2",
-          "signature": "public void testCategory2()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testActorController1",
-          "signature": "public void testActorController1()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCustomerController",
-          "signature": "public void testCustomerController()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCustomerController2",
-          "signature": "public void testCustomerController2()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testInventory",
-          "signature": "public void testInventory()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testRental",
-          "signature": "public void testRental()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "testCategoryByTimeStamp",
-          "signature": "public void testCategoryByTimeStamp()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        }
-      ],
-      "complexityLevel": "high",
-      "internalDependencies": [],
-      "annotations": []
-    },
-    {
-      "filePath": "/home/runner/workspace/java-codebase/src/test/java/com/sparta/engineering72/sakilaproject/SakilaProjectApplicationTests.java",
-      "category": "other",
-      "className": "SakilaProjectApplicationTests",
-      "description": "Other Java class",
-      "methods": [
-        {
-          "name": "MainController1",
-          "signature": "public void MainController1()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "MainController2",
-          "signature": "public void MainController2()",
-          "returnType": "void",
-          "parameters": [],
-          "description": "Auto-generated description"
-        },
-        {
-          "name": "MainController3",
-          "signature": "public void MainController3()",
-          "returnType": "void",
-          "parameters": [],
+          "returnType": "Staff",
           "description": "Auto-generated description"
         }
       ],
@@ -2378,129 +2129,237 @@
   ],
   "conversions": [
     {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/SakilaProjectApplication.java",
+      "convertedFile": "/home/runner/workspace/output/sakilaprojectapplicationother.js",
+      "type": "other",
+      "className": "SakilaProjectApplication"
+    },
+    {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/ActorController.java",
-      "convertedFile": "/home/runner/workspace/output/actorcontroller.js",
+      "convertedFile": "/home/runner/workspace/output/actorcontrollercontroller.js",
       "type": "controller",
       "className": "ActorController"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/CategoryController.java",
-      "convertedFile": "/home/runner/workspace/output/categorycontroller.js",
+      "convertedFile": "/home/runner/workspace/output/categorycontrollercontroller.js",
       "type": "controller",
       "className": "CategoryController"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/CustomerController.java",
-      "convertedFile": "/home/runner/workspace/output/customercontroller.js",
+      "convertedFile": "/home/runner/workspace/output/customercontrollercontroller.js",
       "type": "controller",
       "className": "CustomerController"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/FilmController.java",
-      "convertedFile": "/home/runner/workspace/output/filmcontroller.js",
+      "convertedFile": "/home/runner/workspace/output/filmcontrollercontroller.js",
       "type": "controller",
       "className": "FilmController"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/MainController.java",
-      "convertedFile": "/home/runner/workspace/output/maincontroller.js",
+      "convertedFile": "/home/runner/workspace/output/maincontrollercontroller.js",
       "type": "controller",
       "className": "MainController"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/StaffController.java",
-      "convertedFile": "/home/runner/workspace/output/staffcontroller.js",
+      "convertedFile": "/home/runner/workspace/output/staffcontrollercontroller.js",
       "type": "controller",
       "className": "StaffController"
     },
     {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Actor.java",
+      "convertedFile": "/home/runner/workspace/output/actorother.js",
+      "type": "other",
+      "className": "Actor"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Category.java",
+      "convertedFile": "/home/runner/workspace/output/categoryother.js",
+      "type": "other",
+      "className": "Category"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Customer.java",
+      "convertedFile": "/home/runner/workspace/output/customerother.js",
+      "type": "other",
+      "className": "Customer"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Film.java",
+      "convertedFile": "/home/runner/workspace/output/filmother.js",
+      "type": "other",
+      "className": "Film"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmActor.java",
+      "convertedFile": "/home/runner/workspace/output/filmactorother.js",
+      "type": "other",
+      "className": "FilmActor"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmActorPK.java",
+      "convertedFile": "/home/runner/workspace/output/filmactorpkother.js",
+      "type": "other",
+      "className": "FilmActorPK"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmCategory.java",
+      "convertedFile": "/home/runner/workspace/output/filmcategoryother.js",
+      "type": "other",
+      "className": "FilmCategory"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmCategoryPK.java",
+      "convertedFile": "/home/runner/workspace/output/filmcategorypkother.js",
+      "type": "other",
+      "className": "FilmCategoryPK"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmText.java",
+      "convertedFile": "/home/runner/workspace/output/filmtextother.js",
+      "type": "other",
+      "className": "FilmText"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Inventory.java",
+      "convertedFile": "/home/runner/workspace/output/inventoryother.js",
+      "type": "other",
+      "className": "Inventory"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Order.java",
+      "convertedFile": "/home/runner/workspace/output/orderother.js",
+      "type": "other",
+      "className": "Order"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Rental.java",
+      "convertedFile": "/home/runner/workspace/output/rentalother.js",
+      "type": "other",
+      "className": "Rental"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Staff.java",
+      "convertedFile": "/home/runner/workspace/output/staffother.js",
+      "type": "other",
+      "className": "Staff"
+    },
+    {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/ActorRepository.java",
-      "convertedFile": "/home/runner/workspace/output/actorrepository.js",
+      "convertedFile": "/home/runner/workspace/output/actorrepositorydao.js",
       "type": "dao",
       "className": "ActorRepository"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/CategoryRepository.java",
-      "convertedFile": "/home/runner/workspace/output/categoryrepository.js",
+      "convertedFile": "/home/runner/workspace/output/categoryrepositorydao.js",
       "type": "dao",
       "className": "CategoryRepository"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/CustomerRepository.java",
-      "convertedFile": "/home/runner/workspace/output/customerrepository.js",
+      "convertedFile": "/home/runner/workspace/output/customerrepositorydao.js",
       "type": "dao",
       "className": "CustomerRepository"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/FilmRepository.java",
-      "convertedFile": "/home/runner/workspace/output/filmrepository.js",
+      "convertedFile": "/home/runner/workspace/output/filmrepositorydao.js",
       "type": "dao",
       "className": "FilmRepository"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/InventoryRepository.java",
-      "convertedFile": "/home/runner/workspace/output/inventoryrepository.js",
+      "convertedFile": "/home/runner/workspace/output/inventoryrepositorydao.js",
       "type": "dao",
       "className": "InventoryRepository"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/RentalRepository.java",
-      "convertedFile": "/home/runner/workspace/output/rentalrepository.js",
+      "convertedFile": "/home/runner/workspace/output/rentalrepositorydao.js",
       "type": "dao",
       "className": "RentalRepository"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/StaffRepository.java",
-      "convertedFile": "/home/runner/workspace/output/staffrepository.js",
+      "convertedFile": "/home/runner/workspace/output/staffrepositorydao.js",
       "type": "dao",
       "className": "StaffRepository"
     },
     {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/FailureHandler.java",
+      "convertedFile": "/home/runner/workspace/output/failurehandlerother.js",
+      "type": "other",
+      "className": "FailureHandler"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/MvcConfig.java",
+      "convertedFile": "/home/runner/workspace/output/mvcconfigother.js",
+      "type": "other",
+      "className": "MvcConfig"
+    },
+    {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/SuccessHandler.java",
+      "convertedFile": "/home/runner/workspace/output/successhandlerother.js",
+      "type": "other",
+      "className": "SuccessHandler"
+    },
+    {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/UserDetailsServiceImpl.java",
-      "convertedFile": "/home/runner/workspace/output/userdetailsserviceimpl.js",
-      "type": "service",
+      "convertedFile": "/home/runner/workspace/output/userdetailsserviceimplother.js",
+      "type": "other",
       "className": "UserDetailsServiceImpl"
     },
     {
+      "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/WebSecurityConfig.java",
+      "convertedFile": "/home/runner/workspace/output/websecurityconfigother.js",
+      "type": "other",
+      "className": "WebSecurityConfig"
+    },
+    {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/ActorService.java",
-      "convertedFile": "/home/runner/workspace/output/actorservice.js",
-      "type": "service",
+      "convertedFile": "/home/runner/workspace/output/actorserviceother.js",
+      "type": "other",
       "className": "ActorService"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/CategoryService.java",
-      "convertedFile": "/home/runner/workspace/output/categoryservice.js",
-      "type": "service",
+      "convertedFile": "/home/runner/workspace/output/categoryserviceother.js",
+      "type": "other",
       "className": "CategoryService"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/CustomerService.java",
-      "convertedFile": "/home/runner/workspace/output/customerservice.js",
-      "type": "service",
+      "convertedFile": "/home/runner/workspace/output/customerserviceother.js",
+      "type": "other",
       "className": "CustomerService"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/FilmService.java",
-      "convertedFile": "/home/runner/workspace/output/filmservice.js",
-      "type": "service",
+      "convertedFile": "/home/runner/workspace/output/filmserviceother.js",
+      "type": "other",
       "className": "FilmService"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/InventoryService.java",
-      "convertedFile": "/home/runner/workspace/output/inventoryservice.js",
-      "type": "service",
+      "convertedFile": "/home/runner/workspace/output/inventoryserviceother.js",
+      "type": "other",
       "className": "InventoryService"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/RentalService.java",
-      "convertedFile": "/home/runner/workspace/output/rentalservice.js",
-      "type": "service",
+      "convertedFile": "/home/runner/workspace/output/rentalserviceother.js",
+      "type": "other",
       "className": "RentalService"
     },
     {
       "originalFile": "/home/runner/workspace/java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/StaffService.java",
-      "convertedFile": "/home/runner/workspace/output/staffservice.js",
-      "type": "service",
+      "convertedFile": "/home/runner/workspace/output/staffserviceother.js",
+      "type": "other",
       "className": "StaffService"
     }
   ],
@@ -2531,40 +2390,7 @@
         "methods": 1
       }
     ],
-    "services": [
-      {
-        "className": "UserDetailsServiceImpl",
-        "methods": 1
-      },
-      {
-        "className": "ActorService",
-        "methods": 6
-      },
-      {
-        "className": "CategoryService",
-        "methods": 2
-      },
-      {
-        "className": "CustomerService",
-        "methods": 8
-      },
-      {
-        "className": "FilmService",
-        "methods": 9
-      },
-      {
-        "className": "InventoryService",
-        "methods": 4
-      },
-      {
-        "className": "RentalService",
-        "methods": 2
-      },
-      {
-        "className": "StaffService",
-        "methods": 2
-      }
-    ],
+    "services": [],
     "daos": [
       {
         "className": "ActorRepository",

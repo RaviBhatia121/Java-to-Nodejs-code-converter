@@ -1,389 +1,247 @@
+require("dotenv").config();
+const fs = require("fs");
+const path = require("path");
+const { Configuration, OpenAIApi } = require("openai");
 
-const fs = require('fs').promises;
-const path = require('path');
-const OpenAI = require('openai');
-require('dotenv').config();
-
-// Initialize OpenAI client
-const openai = new OpenAI({
+// ✅ OpenAI setup
+const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+const openai = new OpenAIApi(configuration);
 
-// Configuration
-const JAVA_CODEBASE_PATH = './java-codebase';
-const OUTPUT_PATH = './output';
-const METADATA_FILE = path.join(OUTPUT_PATH, 'metadata.json');
+const JAVA_FOLDER = path.join(__dirname, "java-codebase");
+const OUTPUT_FOLDER = path.join(__dirname, "output");
+const METADATA_FILE = path.join(OUTPUT_FOLDER, "metadata.json");
 
-// File categorization patterns
-const FILE_PATTERNS = {
-  controller: /controller/i,
-  service: /service/i,
-  dao: /(dao|repository)/i,
-  entity: /(entity|model|pojo)/i,
-  config: /config/i,
-  util: /(util|helper)/i
-};
-
-// Logging utility
-function log(message, level = 'INFO') {
-  const timestamp = new Date().toISOString();
-  console.log(`[${timestamp}] ${level}: ${message}`);
-}
-
-// Error handling wrapper
-async function withErrorHandling(fn, context) {
-  try {
-    return await fn();
-  } catch (error) {
-    log(`Error in ${context}: ${error.message}`, 'ERROR');
-    throw error;
-  }
-}
-
-// Recursively find all Java files
-async function findJavaFiles(dir) {
-  const files = [];
-  
-  async function traverse(currentDir) {
-    try {
-      const entries = await fs.readdir(currentDir, { withFileTypes: true });
-      
-      for (const entry of entries) {
-        const fullPath = path.join(currentDir, entry.name);
-        
-        if (entry.isDirectory()) {
-          await traverse(fullPath);
-        } else if (entry.name.endsWith('.java')) {
-          files.push(fullPath);
-        }
-      }
-    } catch (error) {
-      log(`Error reading directory ${currentDir}: ${error.message}`, 'WARN');
+// ✅ Recursive scan for Java files
+function getJavaFiles(dir) {
+  let results = [];
+  const list = fs.readdirSync(dir);
+  list.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(getJavaFiles(filePath));
+    } else if (file.endsWith(".java")) {
+      results.push(filePath);
     }
-  }
-  
-  await traverse(dir);
-  return files;
+  });
+  return results;
 }
 
-// Categorize file based on path and content
-function categorizeFile(filePath, content) {
-  const fileName = path.basename(filePath).toLowerCase();
-  const pathLower = filePath.toLowerCase();
-  
-  for (const [category, pattern] of Object.entries(FILE_PATTERNS)) {
-    if (pattern.test(pathLower) || pattern.test(fileName)) {
-      return category;
-    }
-  }
-  
-  // Check content for annotations
-  if (content.includes('@Controller') || content.includes('@RestController')) {
-    return 'controller';
-  }
-  if (content.includes('@Service')) {
-    return 'service';
-  }
-  if (content.includes('@Repository') || content.includes('@Entity')) {
-    return content.includes('@Entity') ? 'entity' : 'dao';
-  }
-  
-  return 'other';
+// ✅ Categorize using path & annotations
+function categorizeJavaFile(content, filePath) {
+  const lowerPath = filePath.toLowerCase();
+
+  if (lowerPath.includes("/controller/")) return "controller";
+  if (lowerPath.includes("/service/")) return "service";
+  if (
+    lowerPath.includes("/respositories/") ||
+    lowerPath.includes("/repository/") ||
+    lowerPath.includes("dao")
+  )
+    return "dao";
+
+  if (content.includes("@RestController") || content.includes("@Controller"))
+    return "controller";
+  if (content.includes("@Service")) return "service";
+  if (content.includes("@Repository") || content.includes("DAO")) return "dao";
+
+  return "other";
 }
 
-// Extract class information using OpenAI
-async function analyzeJavaClass(filePath, content) {
-  const prompt = `
-Analyze this Java class and extract the following information in JSON format:
+// ✅ Prompt builders
+function buildControllerPrompt(javaContent) {
+  return `
+You are an expert in converting Java Spring Boot controllers into Node.js Express controllers.
 
-\`\`\`java
-${content}
-\`\`\`
+Requirements:
+- Use Express Router.
+- Validate path params (parseInt and isNaN).
+- Return proper JSON error messages (400 invalid, 404 not found, 500 internal error).
+- Assume a repository module (e.g., actorRepo) with matching functions.
+- Add JSDoc comments.
+- Export router.
 
-Please provide:
-{
-  "className": "string",
-  "description": "string - brief description of what this class does",
-  "methods": [
-    {
-      "name": "string",
-      "signature": "string - full method signature",
-      "description": "string - what this method does",
-      "returnType": "string",
-      "parameters": ["string array of parameter types"]
-    }
-  ],
-  "complexityLevel": "string - low/medium/high based on logic complexity",
-  "internalDependencies": ["array of other classes this depends on"],
-  "annotations": ["array of Spring/Java annotations used"],
-  "category": "string - controller/service/dao/entity/other"
-}
-
-Focus on Spring Boot patterns, REST endpoints, database operations, and business logic.
+Java controller:
+${javaContent}
 `;
+}
 
+function buildServicePrompt(javaContent) {
+  return `
+You are an expert in converting Java Spring services to Node.js modules.
+
+Convert this Java service into a Node.js module with equivalent functions, using async/await and proper error handling. Add JSDoc comments.
+
+Java service:
+${javaContent}
+`;
+}
+
+function buildDaoPrompt(javaContent) {
+  return `
+You are an expert in converting Java Spring Data repositories to Node.js data-access modules.
+
+Convert this Java repository/DAO into a Node.js module with equivalent functions. Use async/await. Add JSDoc comments.
+
+Java DAO:
+${javaContent}
+`;
+}
+
+// ✅ Analyze a single file for metadata
+function analyzeJavaFile(content, filePath, type) {
+  // simple class name extraction
+  const classMatch = content.match(/class\s+(\w+)/);
+  const className = classMatch
+    ? classMatch[1]
+    : path.basename(filePath, ".java");
+
+  // extract methods (basic)
+  const methodRegex = /public\s+([a-zA-Z0-9_<>\[\]]+)\s+(\w+)\s*\(([^)]*)\)/g;
+  const methods = [];
+  let match;
+  while ((match = methodRegex.exec(content)) !== null) {
+    methods.push({
+      name: match[2],
+      signature: match[0],
+      returnType: match[1],
+      parameters: match[3] ? match[3].split(",").map((p) => p.trim()) : [],
+      description: "Auto-generated description",
+    });
+  }
+
+  return {
+    filePath,
+    category: type,
+    className,
+    description:
+      type === "controller"
+        ? "Controller class converted from Java."
+        : type === "service"
+          ? "Service class converted from Java."
+          : type === "dao"
+            ? "DAO/Repository class converted from Java."
+            : "Other Java class",
+    methods,
+    complexityLevel:
+      methods.length > 10 ? "high" : methods.length > 3 ? "medium" : "low",
+    internalDependencies: [],
+    annotations: [],
+  };
+}
+
+// ✅ Convert with LLM
+async function convertJavaFile(filePath, type) {
+  const content = fs.readFileSync(filePath, "utf8");
+  let prompt;
+
+  if (type === "controller") {
+    prompt = buildControllerPrompt(content);
+  } else if (type === "service") {
+    prompt = buildServicePrompt(content);
+  } else if (type === "dao") {
+    prompt = buildDaoPrompt(content);
+  } else {
+    console.log(`Skipping ${filePath} (type ${type})`);
+    return null;
+  }
+
+  console.log(`🔄 Converting ${path.basename(filePath)} as ${type}...`);
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+    const response = await openai.createChatCompletion({
+      model: "gpt-4o", // use your accessible model
       messages: [
         {
           role: "system",
-          content: "You are a Java code analyzer. Analyze the provided Java class and return structured JSON data."
+          content:
+            "You are a senior backend engineer helping with code conversion.",
         },
-        {
-          role: "user",
-          content: prompt
-        }
+        { role: "user", content: prompt },
       ],
-      temperature: 0.1,
+      temperature: 0,
     });
 
-    const result = JSON.parse(response.choices[0].message.content);
-    log(`Analyzed class: ${result.className}`);
-    return result;
-  } catch (error) {
-    log(`Error analyzing ${filePath}: ${error.message}`, 'ERROR');
+    const convertedCode = response.data.choices[0].message.content;
+    const outFile = path.join(
+      OUTPUT_FOLDER,
+      path.basename(filePath, ".java").toLowerCase() + ".js",
+    );
+    fs.writeFileSync(outFile, convertedCode, "utf8");
+    console.log(`✅ Converted file written to ${outFile}`);
+
     return {
-      className: path.basename(filePath, '.java'),
-      description: "Analysis failed",
-      methods: [],
-      complexityLevel: "unknown",
-      internalDependencies: [],
-      annotations: [],
-      category: "other"
+      originalFile: filePath,
+      convertedFile: outFile,
+      type,
+      className: path.basename(filePath, ".java"),
     };
+  } catch (err) {
+    console.error(`❌ Conversion failed for ${filePath}`);
+    console.error(err.response?.data || err.message);
+    return null;
   }
 }
 
-// Convert Java class to Node.js Express
-async function convertToNodeJS(javaContent, classInfo, category) {
-  const conversionPrompts = {
-    controller: `
-Convert this Java Spring Boot Controller to a Node.js Express.js controller.
+// ✅ Main runner
+(async () => {
+  if (!fs.existsSync(OUTPUT_FOLDER)) fs.mkdirSync(OUTPUT_FOLDER);
 
-Java code:
-\`\`\`java
-${javaContent}
-\`\`\`
+  const files = getJavaFiles(JAVA_FOLDER);
+  console.log(`Found ${files.length} Java files.`);
 
-Class info: ${JSON.stringify(classInfo, null, 2)}
-
-Requirements:
-- Use Express.js router patterns
-- Convert @RequestMapping/@GetMapping/@PostMapping to Express routes
-- Handle request/response objects properly
-- Include proper error handling and validation
-- Add JSDoc comments for all functions
-- Use async/await for database operations
-- Follow RESTful conventions
-- Include proper HTTP status codes
-
-Return complete, production-ready Node.js code.
-`,
-    service: `
-Convert this Java Spring Boot Service class to a Node.js service module.
-
-Java code:
-\`\`\`java
-${javaContent}
-\`\`\`
-
-Class info: ${JSON.stringify(classInfo, null, 2)}
-
-Requirements:
-- Create a service module with exported functions
-- Convert business logic to async/await patterns
-- Include proper error handling and logging
-- Add JSDoc comments
-- Handle data validation
-- Use modern JavaScript patterns
-- Include proper module exports
-
-Return complete, production-ready Node.js code.
-`,
-    dao: `
-Convert this Java Spring Boot Repository/DAO to a Node.js data access module.
-
-Java code:
-\`\`\`java
-${javaContent}
-\`\`\`
-
-Class info: ${JSON.stringify(classInfo, null, 2)}
-
-Requirements:
-- Create database access functions using a connection library
-- Convert JPA methods to SQL queries or ORM calls
-- Include proper error handling
-- Add JSDoc comments
-- Use async/await patterns
-- Include connection management
-- Add query validation
-
-Return complete, production-ready Node.js code.
-`
-  };
-
-  const prompt = conversionPrompts[category] || conversionPrompts.service;
-
-  try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: "You are an expert in converting Java Spring Boot applications to Node.js Express applications. Provide complete, working code with proper error handling and documentation."
-        },
-        {
-          role: "user",
-          content: prompt
-        }
-      ],
-      temperature: 0.1,
-    });
-
-    return response.choices[0].message.content;
-  } catch (error) {
-    log(`Error converting ${classInfo.className}: ${error.message}`, 'ERROR');
-    return `// Conversion failed for ${classInfo.className}\n// Error: ${error.message}`;
-  }
-}
-
-// Main analysis function
-async function analyzeCodebase() {
-  log('Starting codebase analysis...');
-  
-  // Ensure output directory exists
-  await fs.mkdir(OUTPUT_PATH, { recursive: true });
-  
-  // Find all Java files
-  const javaFiles = await withErrorHandling(
-    () => findJavaFiles(JAVA_CODEBASE_PATH),
-    'finding Java files'
-  );
-  
-  log(`Found ${javaFiles.length} Java files`);
-  
-  const analysisResults = [];
-  const categorizedFiles = {
-    controller: [],
-    service: [],
-    dao: [],
-    entity: [],
-    other: []
-  };
-  
-  // Analyze each Java file
-  for (const filePath of javaFiles) {
-    try {
-      const content = await fs.readFile(filePath, 'utf-8');
-      const category = categorizeFile(filePath, content);
-      const classInfo = await analyzeJavaClass(filePath, content);
-      
-      const result = {
-        filePath,
-        category,
-        content,
-        ...classInfo
-      };
-      
-      analysisResults.push(result);
-      categorizedFiles[category].push(result);
-      
-      log(`Categorized ${path.basename(filePath)} as ${category}`);
-    } catch (error) {
-      log(`Error processing ${filePath}: ${error.message}`, 'ERROR');
-    }
-  }
-  
-  // Convert representative files
-  const conversions = [];
-  const toConvert = [
-    { type: 'controller', file: categorizedFiles.controller[0] },
-    { type: 'service', file: categorizedFiles.service[0] },
-    { type: 'dao', file: categorizedFiles.dao[0] }
-  ];
-  
-  for (const { type, file } of toConvert) {
-    if (file) {
-      log(`Converting ${type}: ${file.className}`);
-      const convertedCode = await convertToNodeJS(file.content, file, type);
-      
-      const outputFileName = `${file.className.toLowerCase()}.js`;
-      const outputPath = path.join(OUTPUT_PATH, outputFileName);
-      
-      await fs.writeFile(outputPath, convertedCode);
-      
-      conversions.push({
-        originalFile: file.filePath,
-        convertedFile: outputPath,
-        type,
-        className: file.className
-      });
-      
-      log(`Saved converted ${type} to ${outputFileName}`);
-    } else {
-      log(`No ${type} files found for conversion`, 'WARN');
-    }
-  }
-  
-  // Generate metadata
   const metadata = {
     analysis: {
-      totalFiles: javaFiles.length,
-      categorizedFiles: Object.keys(categorizedFiles).reduce((acc, key) => {
-        acc[key] = categorizedFiles[key].length;
-        return acc;
-      }, {}),
-      analysisDate: new Date().toISOString()
+      totalFiles: files.length,
+      categorizedFiles: { controller: 0, service: 0, dao: 0, other: 0 },
+      analysisDate: new Date().toISOString(),
     },
-    classes: analysisResults.map(({ content, ...rest }) => rest), // Exclude content for size
-    conversions,
+    classes: [],
+    conversions: [],
     summary: {
-      controllers: categorizedFiles.controller.map(f => ({ className: f.className, methods: f.methods?.length || 0 })),
-      services: categorizedFiles.service.map(f => ({ className: f.className, methods: f.methods?.length || 0 })),
-      daos: categorizedFiles.dao.map(f => ({ className: f.className, methods: f.methods?.length || 0 }))
-    }
+      controllers: [],
+      services: [],
+      daos: [],
+    },
   };
-  
-  await fs.writeFile(METADATA_FILE, JSON.stringify(metadata, null, 2));
-  log(`Saved metadata to ${METADATA_FILE}`);
-  
-  return metadata;
-}
 
-// Run the analysis
-async function main() {
-  try {
-    if (!process.env.OPENAI_API_KEY) {
-      throw new Error('OPENAI_API_KEY environment variable is required');
+  for (const file of files) {
+    const content = fs.readFileSync(file, "utf8");
+    const type = categorizeJavaFile(content, file);
+    metadata.analysis.categorizedFiles[type] =
+      (metadata.analysis.categorizedFiles[type] || 0) + 1;
+
+    console.log(`➡️ Processing ${path.basename(file)} detected as ${type}`);
+
+    const analysisEntry = analyzeJavaFile(content, file, type);
+    metadata.classes.push(analysisEntry);
+
+    const conversionResult = await convertJavaFile(file, type);
+    if (conversionResult) {
+      metadata.conversions.push(conversionResult);
+
+      // summary details
+      if (type === "controller") {
+        metadata.summary.controllers.push({
+          className: analysisEntry.className,
+          methods: analysisEntry.methods.length,
+        });
+      } else if (type === "service") {
+        metadata.summary.services.push({
+          className: analysisEntry.className,
+          methods: analysisEntry.methods.length,
+        });
+      } else if (type === "dao") {
+        metadata.summary.daos.push({
+          className: analysisEntry.className,
+          methods: analysisEntry.methods.length,
+        });
+      }
     }
-    
-    const results = await analyzeCodebase();
-    
-    log('Analysis completed successfully!');
-    log(`Total files analyzed: ${results.analysis.totalFiles}`);
-    log(`Controllers: ${results.analysis.categorizedFiles.controller}`);
-    log(`Services: ${results.analysis.categorizedFiles.service}`);
-    log(`DAOs: ${results.analysis.categorizedFiles.dao}`);
-    log(`Conversions completed: ${results.conversions.length}`);
-    
-  } catch (error) {
-    log(`Fatal error: ${error.message}`, 'ERROR');
-    process.exit(1);
   }
-}
 
-// Export for testing
-module.exports = {
-  analyzeCodebase,
-  findJavaFiles,
-  categorizeFile,
-  analyzeJavaClass,
-  convertToNodeJS
-};
-
-// Run if called directly
-if (require.main === module) {
-  main();
-}
+  fs.writeFileSync(METADATA_FILE, JSON.stringify(metadata, null, 2), "utf8");
+  console.log(`📦 Metadata written to ${METADATA_FILE}`);
+  console.log("🎉 Conversion process complete.");
+})();

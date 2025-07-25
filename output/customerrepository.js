@@ -1,185 +1,125 @@
+To convert the given Java Spring Data repository into a Node.js module, we can use a combination of a database client like `pg` for PostgreSQL or `mysql2` for MySQL, along with an ORM like `Sequelize` or a query builder like `Knex.js`. For this example, I'll use `pg` with `node-postgres` to directly execute SQL queries, which is more similar to the native query approach in your Java code.
 
-// customerrepository.js
-// Placeholder module for CustomerRepository
-// TODO: Implement actual database operations for customer data
+Here's how you can implement the equivalent functionality in Node.js:
 
-/**
- * Get customer by email address
- * @param {string} email - Customer email
- * @returns {Promise<Object>} Customer object or null if not found
- */
-const getCustomerByEmail = async (email) => {
-  try {
-    // TODO: Replace with actual database query
-    // Mock data for development/testing
-    const mockCustomers = [
-      {
-        customerId: 1,
-        email: 'customer1@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        active: 1
-      },
-      {
-        customerId: 2,
-        email: 'customer2@example.com',
-        firstName: 'Jane',
-        lastName: 'Smith',
-        active: 1
-      }
-    ];
+```javascript
+// customerRepository.js
 
-    // Simulate database lookup
-    const customer = mockCustomers.find(c => c.email === email);
-    return customer || null;
-  } catch (error) {
-    console.error('Error getting customer by email:', error);
-    throw error;
-  }
-};
-
-/**
- * Get customer by ID
- * @param {number} customerId - Customer ID
- * @returns {Promise<Object>} Customer object or null if not found
- */
-const getCustomerById = async (customerId) => {
-  try {
-    // TODO: Replace with actual database query
-    // Mock data for development/testing
-    const mockCustomers = [
-      {
-        customerId: 1,
-        email: 'customer1@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        active: 1
-      },
-      {
-        customerId: 2,
-        email: 'customer2@example.com',
-        firstName: 'Jane',
-        lastName: 'Smith',
-        active: 1
-      }
-    ];
-
-    // Simulate database lookup
-    const customer = mockCustomers.find(c => c.customerId === customerId);
-    return customer || null;
-  } catch (error) {
-    console.error('Error getting customer by ID:', error);
-    throw error;
-  }
-};
-
-module.exports = {
-  getCustomerByEmail,
-  getCustomerById
-};
 const { Pool } = require('pg');
 
-/**
- * Database configuration using environment variables
- * TODO: Set these environment variables in your .env file:
- * DB_USER, DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT
- */
+// Configure the database connection
 const pool = new Pool({
-    user: process.env.DB_USER || 'sakila_user',
-    host: process.env.DB_HOST || 'localhost',
-    database: process.env.DB_NAME || 'sakila',
-    password: process.env.DB_PASSWORD || 'password',
-    port: process.env.DB_PORT || 5432,
+  user: 'your_db_user',
+  host: 'your_db_host',
+  database: 'your_db_name',
+  password: 'your_db_password',
+  port: 5432, // default port for PostgreSQL
 });
 
 /**
- * Customer repository module for database operations.
- * @module CustomerRepository
+ * Get a customer by their credentials.
+ * @param {string} username - The email of the customer.
+ * @param {number} password - The customer ID used as a password.
+ * @returns {Promise<Object|null>} The customer object or null if not found.
  */
+async function getCustomerByCredentials(username, password) {
+  const query = 'SELECT * FROM customer WHERE email = $1 AND customer_id = $2';
+  const values = [username, password];
+  const res = await pool.query(query, values);
+  return res.rows[0] || null;
+}
 
 /**
- * Get customer by email address.
- * @param {string} email - The customer's email address.
+ * Get a customer by their username (email).
+ * @param {string} username - The email of the customer.
+ * @returns {Promise<Object|null>} The customer object or null if not found.
+ */
+async function getCustomerByUsername(username) {
+  const query = 'SELECT * FROM customer WHERE email = $1';
+  const res = await pool.query(query, [username]);
+  return res.rows[0] || null;
+}
+
+/**
+ * Get customers by their first name.
+ * @param {string} firstName - The first name of the customers.
+ * @returns {Promise<Array<Object>>} A list of customer objects.
+ */
+async function getCustomersByFirstName(firstName) {
+  const query = 'SELECT * FROM customer WHERE first_name = $1';
+  const res = await pool.query(query, [firstName]);
+  return res.rows;
+}
+
+/**
+ * Get customers by their last name.
+ * @param {string} lastName - The last name of the customers.
+ * @returns {Promise<Array<Object>>} A list of customer objects.
+ */
+async function getCustomersByLastName(lastName) {
+  const query = 'SELECT * FROM customer WHERE last_name = $1';
+  const res = await pool.query(query, [lastName]);
+  return res.rows;
+}
+
+/**
+ * Get customers by their full name.
+ * @param {string} firstName - The first name of the customers.
+ * @param {string} lastName - The last name of the customers.
+ * @returns {Promise<Array<Object>>} A list of customer objects.
+ */
+async function getCustomersByFullName(firstName, lastName) {
+  const query = 'SELECT * FROM customer WHERE first_name = $1 AND last_name = $2';
+  const res = await pool.query(query, [firstName, lastName]);
+  return res.rows;
+}
+
+/**
+ * Get a customer by their customer ID.
+ * @param {number} id - The ID of the customer.
+ * @returns {Promise<Object|null>} The customer object or null if not found.
+ */
+async function getCustomerByCustomerId(id) {
+  const query = 'SELECT * FROM customer WHERE customer_id = $1';
+  const res = await pool.query(query, [id]);
+  return res.rows[0] || null;
+}
+
+/**
+ * Get a customer by their email.
+ * @param {string} email - The email of the customer.
  * @returns {Promise<Object|null>} The customer object or null if not found.
  */
 async function getCustomerByEmail(email) {
-    try {
-        // TODO: Implement actual database query
-        // For now, return mock data
-        if (email === 'customer@example.com') {
-            return {
-                customerId: 1,
-                firstName: 'John',
-                lastName: 'Doe',
-                email: email,
-                active: true,
-                createDate: new Date()
-            };
-        }
-        return null;
-    } catch (error) {
-        console.error('Error fetching customer by email:', error);
-        throw error;
-    }
+  const query = 'SELECT * FROM customer WHERE email = $1';
+  const res = await pool.query(query, [email]);
+  return res.rows[0] || null;
 }
 
 /**
- * Get customer by ID.
- * @param {number} customerId - The customer's ID.
- * @returns {Promise<Object|null>} The customer object or null if not found.
+ * Get the total count of customers.
+ * @returns {Promise<number>} The total number of customers.
  */
-async function getCustomerById(customerId) {
-    try {
-        // TODO: Implement actual database query
-        // For now, return mock data
-        return {
-            customerId: customerId,
-            firstName: 'John',
-            lastName: 'Doe',
-            email: 'customer@example.com',
-            active: true,
-            createDate: new Date()
-        };
-    } catch (error) {
-        console.error('Error fetching customer by ID:', error);
-        throw error;
-    }
-}
-
-/**
- * Get all customers.
- * @returns {Promise<Array>} Array of customer objects.
- */
-async function getAllCustomers() {
-    try {
-        // TODO: Implement actual database query
-        // For now, return mock data
-        return [
-            {
-                customerId: 1,
-                firstName: 'John',
-                lastName: 'Doe',
-                email: 'customer@example.com',
-                active: true,
-                createDate: new Date()
-            },
-            {
-                customerId: 2,
-                firstName: 'Jane',
-                lastName: 'Smith',
-                email: 'jane@example.com',
-                active: true,
-                createDate: new Date()
-            }
-        ];
-    } catch (error) {
-        console.error('Error fetching all customers:', error);
-        throw error;
-    }
+async function getCustomerCount() {
+  const query = 'SELECT COUNT(*) FROM customer';
+  const res = await pool.query(query);
+  return parseInt(res.rows[0].count, 10);
 }
 
 module.exports = {
-    getCustomerByEmail,
-    getCustomerById,
-    getAllCustomers
+  getCustomerByCredentials,
+  getCustomerByUsername,
+  getCustomersByFirstName,
+  getCustomersByLastName,
+  getCustomersByFullName,
+  getCustomerByCustomerId,
+  getCustomerByEmail,
+  getCustomerCount,
 };
+```
+
+### Notes:
+- Replace `'your_db_user'`, `'your_db_host'`, `'your_db_name'`, and `'your_db_password'` with your actual database credentials.
+- This code uses `pg` to connect to a PostgreSQL database. If you're using a different database, you might need to adjust the connection and query syntax accordingly.
+- The `async/await` syntax is used to handle asynchronous database operations.
+- JSDoc comments are added for each function to describe their purpose and parameters.
