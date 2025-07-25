@@ -1,0 +1,547 @@
+{
+  "analysis": {
+    "totalFiles": 42,
+    "categorizedFiles": {
+      "controller": 6,
+      "service": 8,
+      "dao": 7,
+      "entity": 10,
+      "other": 9
+    },
+    "analysisDate": "2025-07-25T09:31:17.623Z"
+  },
+  "classes": [
+    {
+      "filePath": "java-codebase/.mvn/wrapper/MavenWrapperDownloader.java",
+      "category": "other",
+      "className": "MavenWrapperDownloader",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/SakilaProjectApplication.java",
+      "category": "other",
+      "className": "SakilaProjectApplication",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/ActorController.java",
+      "category": "other",
+      "className": "ActorController",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/CategoryController.java",
+      "category": "other",
+      "className": "CategoryController",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/CustomerController.java",
+      "category": "other",
+      "className": "CustomerController",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/FilmController.java",
+      "category": "other",
+      "className": "FilmController",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/MainController.java",
+      "category": "other",
+      "className": "MainController",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/StaffController.java",
+      "category": "other",
+      "className": "StaffController",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Actor.java",
+      "category": "other",
+      "className": "Actor",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Category.java",
+      "category": "other",
+      "className": "Category",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Customer.java",
+      "category": "other",
+      "className": "Customer",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Film.java",
+      "category": "other",
+      "className": "Film",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmActor.java",
+      "category": "other",
+      "className": "FilmActor",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmActorPK.java",
+      "category": "other",
+      "className": "FilmActorPK",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmCategory.java",
+      "category": "other",
+      "className": "FilmCategory",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmCategoryPK.java",
+      "category": "other",
+      "className": "FilmCategoryPK",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/FilmText.java",
+      "category": "other",
+      "className": "FilmText",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Inventory.java",
+      "category": "other",
+      "className": "Inventory",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Order.java",
+      "category": "other",
+      "className": "Order",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Rental.java",
+      "category": "other",
+      "className": "Rental",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/entities/Staff.java",
+      "category": "other",
+      "className": "Staff",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/ActorRepository.java",
+      "category": "other",
+      "className": "ActorRepository",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/CategoryRepository.java",
+      "category": "other",
+      "className": "CategoryRepository",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/CustomerRepository.java",
+      "category": "other",
+      "className": "CustomerRepository",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/FilmRepository.java",
+      "category": "other",
+      "className": "FilmRepository",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/InventoryRepository.java",
+      "category": "other",
+      "className": "InventoryRepository",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/RentalRepository.java",
+      "category": "other",
+      "className": "RentalRepository",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/StaffRepository.java",
+      "category": "other",
+      "className": "StaffRepository",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/FailureHandler.java",
+      "category": "other",
+      "className": "FailureHandler",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/MvcConfig.java",
+      "category": "other",
+      "className": "MvcConfig",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/SuccessHandler.java",
+      "category": "other",
+      "className": "SuccessHandler",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/UserDetailsServiceImpl.java",
+      "category": "other",
+      "className": "UserDetailsServiceImpl",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/WebSecurityConfig.java",
+      "category": "other",
+      "className": "WebSecurityConfig",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/ActorService.java",
+      "category": "other",
+      "className": "ActorService",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/CategoryService.java",
+      "category": "other",
+      "className": "CategoryService",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/CustomerService.java",
+      "category": "other",
+      "className": "CustomerService",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/FilmService.java",
+      "category": "other",
+      "className": "FilmService",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/InventoryService.java",
+      "category": "other",
+      "className": "InventoryService",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/RentalService.java",
+      "category": "other",
+      "className": "RentalService",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/services/StaffService.java",
+      "category": "other",
+      "className": "StaffService",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/test/java/com/sparta/engineering72/sakilaproject/MockTests.java",
+      "category": "other",
+      "className": "MockTests",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    },
+    {
+      "filePath": "java-codebase/src/test/java/com/sparta/engineering72/sakilaproject/SakilaProjectApplicationTests.java",
+      "category": "other",
+      "className": "SakilaProjectApplicationTests",
+      "description": "Analysis failed",
+      "methods": [],
+      "complexityLevel": "unknown",
+      "internalDependencies": [],
+      "annotations": []
+    }
+  ],
+  "conversions": [
+    {
+      "originalFile": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/controller/ActorController.java",
+      "convertedFile": "output/actorcontroller.js",
+      "type": "controller",
+      "className": "ActorController"
+    },
+    {
+      "originalFile": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/securingweb/UserDetailsServiceImpl.java",
+      "convertedFile": "output/userdetailsserviceimpl.js",
+      "type": "service",
+      "className": "UserDetailsServiceImpl"
+    },
+    {
+      "originalFile": "java-codebase/src/main/java/com/sparta/engineering72/sakilaproject/respositories/ActorRepository.java",
+      "convertedFile": "output/actorrepository.js",
+      "type": "dao",
+      "className": "ActorRepository"
+    }
+  ],
+  "summary": {
+    "controllers": [
+      {
+        "className": "ActorController",
+        "methods": 0
+      },
+      {
+        "className": "CategoryController",
+        "methods": 0
+      },
+      {
+        "className": "CustomerController",
+        "methods": 0
+      },
+      {
+        "className": "FilmController",
+        "methods": 0
+      },
+      {
+        "className": "MainController",
+        "methods": 0
+      },
+      {
+        "className": "StaffController",
+        "methods": 0
+      }
+    ],
+    "services": [
+      {
+        "className": "UserDetailsServiceImpl",
+        "methods": 0
+      },
+      {
+        "className": "ActorService",
+        "methods": 0
+      },
+      {
+        "className": "CategoryService",
+        "methods": 0
+      },
+      {
+        "className": "CustomerService",
+        "methods": 0
+      },
+      {
+        "className": "FilmService",
+        "methods": 0
+      },
+      {
+        "className": "InventoryService",
+        "methods": 0
+      },
+      {
+        "className": "RentalService",
+        "methods": 0
+      },
+      {
+        "className": "StaffService",
+        "methods": 0
+      }
+    ],
+    "daos": [
+      {
+        "className": "ActorRepository",
+        "methods": 0
+      },
+      {
+        "className": "CategoryRepository",
+        "methods": 0
+      },
+      {
+        "className": "CustomerRepository",
+        "methods": 0
+      },
+      {
+        "className": "FilmRepository",
+        "methods": 0
+      },
+      {
+        "className": "InventoryRepository",
+        "methods": 0
+      },
+      {
+        "className": "RentalRepository",
+        "methods": 0
+      },
+      {
+        "className": "StaffRepository",
+        "methods": 0
+      }
+    ]
+  }
+}
